@@ -1,0 +1,7 @@
+{
+   "shared": {
+    "header": {
+        "nav" : ["Home", "Timeline", "Bank card", "Contaсts"]
+    }
+   }
+}
