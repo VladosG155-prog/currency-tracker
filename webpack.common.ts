@@ -20,9 +20,9 @@ const cssLoaderWithModules = {
   },
 };
 
-const cssLoader = {
-  test: /\.css$/i,
-  use: [cssLoaderWithModules],
+const scssLoader = {
+  test: /\.(sa|sc|c)ss$/i,
+  use: ['style-loader', cssLoaderWithModules, 'sass-loader'],
 };
 
 const assetLoader = {
@@ -68,10 +68,11 @@ const commonConfig: Configuration = {
       '@constants': path.resolve(__dirname, './src/constants'),
       '@store': path.resolve(__dirname, './src/store'),
       '@assets': path.resolve(__dirname, './src/assets'),
+      '@pages': path.resolve(__dirname, './src/pages'),
     },
   },
   module: {
-    rules: [babelLoader, cssLoader, assetLoader, svgLoader],
+    rules: [babelLoader, scssLoader, assetLoader, svgLoader],
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -24,7 +24,6 @@ const devConfig: ConfigurationWithDevServer = {
       directory: path.resolve(__dirname, 'public'),
     },
     hot: true,
-    compress: true,
     port: 5003,
     historyApiFallback: true,
   },

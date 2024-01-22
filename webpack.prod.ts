@@ -16,7 +16,7 @@ const prodConfig: Configuration = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
+        test: /\.(sa|sc|c)ss$/i,
         use: [MiniCssExtractPlugin.loader],
       },
     ],

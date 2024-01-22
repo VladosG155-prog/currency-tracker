@@ -1,18 +1,14 @@
-import text from '@constants/text.json';
+import './styles/index.scss';
 
-import styles from './App.module.css';
-import Ga from './Ga';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <>
-      {text.shared.header.nav.map((item) => (
-        <span>{item}</span>
-      ))}
-      <Ga />
-      <div className={styles.root}>gagas</div>
-    </>
+    <div>
+      <header>header</header>
+      <Outlet />
+      <footer />
+    </div>
   );
 }
-
 export default App;

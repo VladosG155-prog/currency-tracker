@@ -1,0 +1,12 @@
+@import '_normalize';
+
+body[data-theme='black'] {
+  --background-color: rgba(3, 3, 4, 1);
+}
+body[data-theme='light'] {
+  --background-color: rgba(249, 249, 249, 1);
+}
+
+body {
+  background: var(--background-color);
+}
