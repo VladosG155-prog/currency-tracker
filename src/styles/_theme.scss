@@ -1,0 +1,35 @@
+body[data-theme='DARK'] {
+  --background-color-primary: rgba(0, 0, 0, 1);
+  --background-color-secondary: rgba(255, 255, 255, 1);
+  --background-color-gray: rgba(32, 32, 37, 1);
+  --background-banner-gradient: linear-gradient(
+    241deg,
+    rgba(22, 39, 31, 0.79) 61%,
+    rgba(18, 18, 18, 1) 77%
+  );
+  --text-color-primary: rgba(255, 255, 255, 1);
+  --text-color-secondary: rgba(217, 217, 217, 1);
+  --text-color-gray: rgba(137, 137, 137, 1);
+  --text-color-gradient: -webkit-linear-gradient(
+    rgba(0, 206, 44, 1) 0%,
+    rgba(174, 223, 35, 1) 50%,
+    rgba(163, 220, 0, 1) 100%
+  );
+}
+body[data-theme='LIGHT'] {
+  --background-color-primary: #fff;
+  --background-banner-gradient: linear-gradient(
+    241deg,
+    rgba(255, 255, 255, 0.79) 10%,
+    rgba(240, 240, 240, 1) 37%
+  );
+  --background-color-gray: rgba(32, 32, 37, 1);
+  --background-color-secondary: #000;
+  --text-color-primary: #030304;
+  --text-color-secondary: rgba(119, 119, 119, 1);
+  --text-color-gradient: -webkit-linear-gradient(
+    rgba(255, 200, 255, 1) 0%,
+    rgba(255, 150, 0, 1) 50%,
+    rgba(255, 200, 255, 1) 100%
+  );
+}

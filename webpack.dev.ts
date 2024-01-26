@@ -13,12 +13,7 @@ interface ConfigurationWithDevServer extends Configuration {
 const devConfig: ConfigurationWithDevServer = {
   mode: 'development',
   devtool: 'inline-source-map',
-  entry: path.resolve(__dirname, 'src', 'index.tsx'),
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-  },
+
   devServer: {
     static: {
       directory: path.resolve(__dirname, 'public'),

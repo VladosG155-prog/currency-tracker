@@ -1,12 +1,32 @@
 @import '_normalize';
-
-body[data-theme='black'] {
-  --background-color: rgba(3, 3, 4, 1);
-}
-body[data-theme='light'] {
-  --background-color: rgba(249, 249, 249, 1);
-}
-
+@import '_theme';
 body {
-  background: var(--background-color);
+  font-family: 'Poppins', sans-serif;
+  background: var(--background-color-primary);
+  transition: background 0.1s ease;
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+  &.active {
+    @include gradientText;
+    &:hover::before {
+      display: none;
+    }
+  }
+  &:before {
+    content: '';
+    width: 0px;
+    position: absolute;
+    top: 100%;
+    height: 2px;
+    left: 0;
+    display: block;
+    background: var(--text-color-gradient);
+    transition: 0.1s all ease;
+  }
+  &:hover::before {
+    width: 100%;
+  }
 }

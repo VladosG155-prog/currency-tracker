@@ -1,0 +1,43 @@
+.root {
+  height: 420px;
+}
+.banner {
+  @include flex($justify: space-around);
+  background: var(--background-banner-gradient);
+  height: 400px;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-weight: 600;
+
+  width: 100%;
+
+  z-index: -1;
+}
+.textWrap {
+  width: 80%;
+  margin-right: 65px;
+  max-width: 700px;
+  @include flex($direction: column, $align: flex-end);
+  & h1 {
+    font-size: 76px;
+    text-align: end;
+    @include gradientText;
+    line-height: 1.5;
+  }
+  & p {
+    font-size: 25px;
+    margin-top: 10px;
+    width: 400px;
+    color: var(--text-color-secondary);
+    font-weight: 300;
+    line-height: 1.7;
+    text-align: center;
+  }
+}
+.bannerWrap {
+  @include flex($justify: center);
+  width: 100%;
+}

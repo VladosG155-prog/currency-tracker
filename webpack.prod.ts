@@ -8,18 +8,11 @@ const prodConfig: Configuration = {
   mode: 'production',
   devtool: 'source-map',
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
+
   output: {
     filename: '[name].[contenthash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(sa|sc|c)ss$/i,
-        use: [MiniCssExtractPlugin.loader],
-      },
-    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
