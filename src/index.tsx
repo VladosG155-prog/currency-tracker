@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from '@root/pages/HomePage';
 import { store } from '@store/store';
 
+import { TimeLinePage } from './pages/TimeLinePage';
 import App from './App';
 
 const root = document.getElementById('root');
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
         element: <HomePage />,
         index: true,
       },
+      { element: <TimeLinePage />, path: '/timeline' },
     ],
   },
 ]);
@@ -30,3 +32,4 @@ container.render(
     <RouterProvider router={router} />
   </Provider>,
 );
+

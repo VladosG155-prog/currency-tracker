@@ -78,3 +78,4 @@ export const ExchangeModal: FC<ISelectedCurrency> = ({ selectedCurrency }) => {
     </>
   );
 };
+

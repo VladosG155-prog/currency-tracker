@@ -32,3 +32,4 @@ export const CurrencyCard: FC<ICurrencyCardProps> = ({
 };
 
 export default CurrencyCard;
+

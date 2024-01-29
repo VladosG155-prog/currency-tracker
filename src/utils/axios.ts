@@ -24,14 +24,15 @@ const axiosWithCache = async <T>(
   const storedData = localStorage.getItem(cacheKey);
   const data: CacheItem<T> | null = storedData ? JSON.parse(storedData) : null;
 
-  const hasValidValueInStorage = data && Date.now() - data.timestamp < cacheTime * 1000;
+  const hasValidValueInStorage =
+    data && Date.now() - data.timestamp < cacheTime * 1000;
 
   if (hasValidValueInStorage) {
     return Promise.resolve(data.data);
   }
 
   try {
-    const response: AxiosResponse<T> = await axios(url, options);
+    const response: AxiosResponse<T> = await axios(url, options); // добавить конфиг аксиос;
 
     const cacheItem: CacheItem<T> = {
       data: response.data,
@@ -49,3 +50,4 @@ const axiosWithCache = async <T>(
 };
 
 export default axiosWithCache;
+
