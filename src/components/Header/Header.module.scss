@@ -1,0 +1,58 @@
+.root {
+  padding-top: 30px;
+  height: 500px;
+}
+.topBar {
+  @include flex;
+  margin-bottom: 30px;
+}
+.nav {
+  flex: 0 1 50%;
+  @include flex;
+}
+.link {
+  color: var(--text-color-primary);
+  &.active {
+    @include gradientText;
+  }
+}
+.lastUpdated {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & p {
+    color: var(--text-color-secondary);
+    font-size: 32px;
+    font-weight: 300;
+  }
+}
+.pulseCircle {
+  background: black;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  margin-right: 18px;
+  height: 16px;
+  width: 16px;
+  transform: scale(1);
+  background: #00bc4f;
+  box-shadow: 0 0 0 0 #00bc4f;
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 #00bc4f;
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+  }
+}

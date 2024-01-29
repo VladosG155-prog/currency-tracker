@@ -2,6 +2,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import DotEnv from 'dotenv-webpack';
 import { Configuration } from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const babelLoader = {
   test: /\.tsx?$/,
@@ -15,14 +16,23 @@ const cssLoaderWithModules = {
   loader: 'css-loader',
   options: {
     modules: {
-      localIdentName: '[path][name]__[local]',
+      localIdentName: '[path][name]__[local]--[hash:base64:5]',
     },
   },
 };
 
 const scssLoader = {
   test: /\.(sa|sc|c)ss$/i,
-  use: ['style-loader', cssLoaderWithModules, 'sass-loader'],
+  use: [
+    MiniCssExtractPlugin.loader,
+    cssLoaderWithModules,
+    {
+      loader: 'sass-loader',
+      options: {
+        additionalData: '@import "src/styles/_mixins.scss";',
+      },
+    },
+  ],
 };
 
 const assetLoader = {
@@ -36,16 +46,6 @@ const svgLoader = {
       loader: '@svgr/webpack',
       options: {
         icon: true,
-        svgoConfig: {
-          plugins: [
-            {
-              name: 'convertColors',
-              params: {
-                currentColor: true,
-              },
-            },
-          ],
-        },
       },
     },
   ],
@@ -53,7 +53,9 @@ const svgLoader = {
 
 const commonConfig: Configuration = {
   mode: 'production',
-  entry: path.resolve(__dirname, 'src', 'index.tsx'),
+  entry: {
+    main: path.resolve(__dirname, 'src', 'index.tsx'),
+  },
   output: {
     filename: '[name].[contenthash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -82,6 +84,7 @@ const commonConfig: Configuration = {
       path: './.env',
       safe: true,
     }),
+    new MiniCssExtractPlugin({}),
   ],
 };
 

@@ -1,0 +1,23 @@
+.root {
+  background: #202025;
+  padding: 30px;
+  @include flex($justify: flex-start);
+  width: 48%;
+  max-width: 520px;
+  margin-bottom: 55px;
+  border-radius: 8px;
+}
+.text {
+  margin-left: 30px;
+  & h3 {
+    font-size: 35px;
+    font-weight: 400;
+    color: var(--text-color-secondary);
+    margin-bottom: 20px;
+  }
+  & p {
+    color: #a7b2c3;
+    font-size: 32px;
+    font-weight: 300;
+  }
+}

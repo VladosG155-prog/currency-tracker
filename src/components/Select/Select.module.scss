@@ -1,0 +1,24 @@
+.select {
+  width: 100%;
+  position: relative;
+  & input {
+    width: 100%;
+    height: 30px;
+    padding: 15px;
+  }
+}
+.options {
+  width: 100%;
+  position: absolute;
+  & p {
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+    background: var(--background-color-primary);
+    color: var(--text-color-primary);
+    &:hover {
+      background: var(--text-color-gray);
+      color: var(--text-color-secondary);
+    }
+  }
+}

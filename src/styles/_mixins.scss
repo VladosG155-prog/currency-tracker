@@ -1,0 +1,17 @@
+@mixin flex(
+  $align: center,
+  $justify: space-between,
+  $direction: row,
+  $wrap: noWrap
+) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+@mixin gradientText() {
+  background: var(--text-color-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

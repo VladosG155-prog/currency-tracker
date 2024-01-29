@@ -1,0 +1,8 @@
+{
+  "nav": [
+    { "name": "Home", "route": "/" },
+    { "name": "Timeline", "route": "/timeline" },
+    { "name": "Bank card", "route": "/bankcard" },
+    { "name": "Contaсts", "route": "/contacts" }
+  ]
+}

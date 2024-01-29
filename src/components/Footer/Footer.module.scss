@@ -1,0 +1,37 @@
+.root {
+  @include flex($justify: space-between, $align: flex-start);
+}
+.about {
+  width: 40%;
+  & p {
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--text-color-primary);
+    line-height: 1.5;
+    margin-top: 18px;
+  }
+}
+
+.column {
+  & h2 {
+    margin-bottom: 40px;
+    font-size: 28px;
+    color: var(--text-color-primary);
+  }
+  & p {
+    color: var(--text-color-gray);
+    font-weight: 400;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+}
+
+.logo {
+  @include flex($justify: flex-start);
+  & h3 {
+    @include gradientText;
+    margin-left: 20px;
+    font-size: 26px;
+    font-weight: 600;
+  }
+}
