@@ -1,10 +1,10 @@
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import HomePage from '@root/pages/HomePage';
+import HomePage from '@pages/HomePage';
 import { store } from '@store/store';
 
-import { TimeLinePage } from './pages/TimeLinePage';
+import TimeLinePage from './pages/TimeLinePage';
 import App from './App';
 
 const root = document.getElementById('root');

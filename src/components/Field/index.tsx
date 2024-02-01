@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import styles from './Field.module.scss';
 
 interface IFieldProps {
-  value: string;
+  value: string | number;
   onChange: (value: string) => void;
   placeholder: string;
 }
@@ -20,3 +20,4 @@ const Field: FC<IFieldProps> = ({ value, onChange, placeholder }) => (
 );
 
 export default Field;
+

@@ -1,0 +1,18 @@
+.root {
+  padding: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  color: var(--text-color-primary);
+  &[data-variant='success'] {
+    background: #16c782;
+  }
+  &[data-variant='decline'] {
+    background: #ea3943;
+  }
+  &[data-variant='default'] {
+    background: #1b2028;
+  }
+}
+

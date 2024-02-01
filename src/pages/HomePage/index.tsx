@@ -40,6 +40,7 @@ const HomePage = () => {
           <ExchangeModal selectedCurrency={selectedCurrency} />
         </Modal>
       )}
+
       {currencies.map((currency) => (
         <CurrencyCard
           onClick={() => onClickCard(currency.code)}
@@ -54,3 +55,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+

@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Themes } from '@root/@types/enums';
-import Icon from '@root/components/Icon';
+import Icon from '@components/Icon';
 import { useAppSelector } from '@root/store/hooks';
+import { Themes } from '@root/types/enums';
 
 import styles from './Banner.module.scss';
 
@@ -37,3 +37,4 @@ const Banner: FC<IBannerProps> = ({ title, description }) => {
 };
 
 export default Banner;
+

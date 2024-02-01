@@ -27,8 +27,8 @@
   width: 26px;
   left: 2px;
   bottom: 2px;
-  border: 1px solid var(--background-color-secondary);
-  background-color: var(--background-color-primary);
+  border: 1px solid var(--bg-color-secondary);
+  background-color: var(--bg-color-primary);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -41,9 +41,10 @@ input:checked + .slider:before {
 
 .slider.round {
   border-radius: 34px;
-  border: 1px solid var(--background-color-secondary);
+  border: 1px solid var(--bg-color-secondary);
 }
 
 .slider.round:before {
   border-radius: 50%;
 }
+

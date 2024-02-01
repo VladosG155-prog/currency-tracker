@@ -1,5 +1,6 @@
 import { FC, ReactNode, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { useOutsideClick } from '@root/hooks/useClickOutside';
 
 import styles from './Modal.module.scss';
 
@@ -10,17 +11,19 @@ interface IModalProps {
 }
 
 const Modal: FC<IModalProps> = ({ onClose, title, children }) => {
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useOutsideClick(ref, onClose);
 
   useEffect(() => {
     document.body.style.overflowY = 'hidden';
     return () => {
-      document.body.style.overflowY = 'visible';
+      document.body.style.overflowY = 'unset';
     };
   }, []);
 
   return createPortal(
-    <div onClick={onClose} className={styles.overlay}>
+    <div className={styles.overlay}>
       <div
         ref={ref}
         onClick={(e) => e.stopPropagation()}
@@ -38,3 +41,4 @@ const Modal: FC<IModalProps> = ({ onClose, title, children }) => {
 };
 
 export default Modal;
+

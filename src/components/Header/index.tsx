@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Switch from '@components/Switch';
 import routes from '@constants/routes.json';
 import text from '@constants/text.json';
-import { Themes } from '@root/@types/enums';
+import { Themes } from '@root/types/enums';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { changeTheme } from '@store/slices/globalSlice';
 import classNames from 'classnames';

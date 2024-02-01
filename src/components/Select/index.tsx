@@ -1,4 +1,7 @@
-import { FC, useState } from 'react';
+import { FC, useRef, useState } from 'react';
+import { useOutsideClick } from '@root/hooks/useClickOutside';
+
+import Icon from '../Icon';
 
 import styles from './Select.module.scss';
 
@@ -21,6 +24,7 @@ export const Select: FC<ISelectProps> = ({
   onChange,
 }) => {
   const [isShowOptions, setIsShowOptions] = useState(false);
+  const ref = useRef(null);
 
   const handleChange = (val: string) => {
     onChange(val);
@@ -31,8 +35,10 @@ export const Select: FC<ISelectProps> = ({
     setIsShowOptions((prev) => !prev);
   };
 
+  useOutsideClick(ref, toggleOptions);
+
   return (
-    <div className={styles.select}>
+    <div ref={ref} className={styles.select}>
       <input
         placeholder={placeholder}
         onClick={toggleOptions}
@@ -45,10 +51,14 @@ export const Select: FC<ISelectProps> = ({
           {options
             .filter((option) => option.value !== value)
             .map((option) => (
-              <p onClick={() => handleChange(option.value)}>{option.label}</p>
+              <p key={option.label} onClick={() => handleChange(option.value)}>
+                <Icon iconName={option.value} />
+                {option.label}
+              </p>
             ))}
         </div>
       )}
     </div>
   );
 };
+

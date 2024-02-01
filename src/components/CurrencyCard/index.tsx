@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { truncateToTwoSignificantDigits } from '@root/utils/convertCurrencyValue';
+import { truncateToTwoSignificantDigits } from '@utils/convertCurrencyValue';
 
 import Icon from '../Icon';
 

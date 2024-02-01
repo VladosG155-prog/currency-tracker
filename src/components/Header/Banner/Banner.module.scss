@@ -3,7 +3,7 @@
 }
 .banner {
   @include flex($justify: space-around);
-  background: var(--background-banner-gradient);
+  background: var(--bg-color-gradient);
   height: 400px;
   position: absolute;
   top: 100px;
@@ -41,3 +41,4 @@
   @include flex($justify: center);
   width: 100%;
 }
+
