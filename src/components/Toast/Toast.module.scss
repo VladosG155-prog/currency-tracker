@@ -1,0 +1,36 @@
+.toastContainer {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+}
+.toast {
+  width: 400px;
+  height: 50px;
+  @include flex($justify: center);
+  background: #fff;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+}
+.toastEnd {
+  width: 100%;
+  background: #000;
+  height: 2px;
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  animation: shrinkAnimation 2s ease;
+}
+
+@keyframes shrinkAnimation {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+

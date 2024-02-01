@@ -1,9 +1,13 @@
 @import '_normalize';
 @import '_theme';
+
 body {
   font-family: 'Poppins', sans-serif;
-  background: var(--background-color-primary);
+  background: var(--bg-color-primary);
   transition: background 0.1s ease;
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
 }
 
 a {
@@ -30,3 +34,4 @@ a {
     width: 100%;
   }
 }
+

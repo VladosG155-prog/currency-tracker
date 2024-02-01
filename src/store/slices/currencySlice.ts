@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { endpoints } from '@root/api/endpoints';
 import { CurrencyTitles } from '@root/constants/currencyTitles';
 import axiosWithCache from '@root/utils/axios';
-import axios, { AxiosResponse } from 'axios';
 
 export const getCurrencies = createAsyncThunk(
   'currenсies/fetchCurrencies',
@@ -18,36 +17,15 @@ export const getCurrencies = createAsyncThunk(
   },
 );
 
-export const exchangeCurrency = createAsyncThunk(
-  'currencies/exchange',
-  async (params: { exchangeCurrency: string; selectCurrency: string }) => {
-    const response: AxiosResponse<ExchangeCurrencyResponse> = await axios.get(
-      `${endpoints.exchangeCurrency + params.selectCurrency}/${
-        params.exchangeCurrency
-      }`,
-      {
-        headers: {
-          'X-CoinAPI-Key': process.env.COIN_API_KEY,
-        },
-      },
-    );
-    return response.data;
-  },
-);
-
 interface InitialState {
   currencies: Currency[];
   lastTimeUpdate: string;
-  selectedCurrency: string;
-  currencyToExchange: string;
   rate: number;
 }
 
 const initialState: InitialState = {
   currencies: [],
   lastTimeUpdate: '',
-  selectedCurrency: '',
-  currencyToExchange: '',
   rate: 0,
 };
 
@@ -57,18 +35,15 @@ const currencySlice = createSlice({
   reducers: {
     exchangeRate: (state, action) => {
       const firstCurrency = state.currencies.find(
-        (currency) => currency.code === action.payload.selectedCurrency,
+        (currency) => currency.code === action.payload.activeCurrency,
       );
 
       const secondCurrency = state.currencies.find(
-        (currency) => currency.code === action.payload.exchangeCurrency,
+        (currency) => currency.code === action.payload.selectedCurrency,
       );
-
       if (firstCurrency && secondCurrency) {
-        const rate1 = 1 / firstCurrency.value;
-        const rate2 = 1 / secondCurrency.value;
-
-        state.rate = rate1 / rate2;
+        const rate2 = firstCurrency.value / secondCurrency.value;
+        state.rate = rate2;
       }
     },
   },
@@ -88,13 +63,9 @@ const currencySlice = createSlice({
 
       state.currencies = newData;
     });
-    builder.addCase(exchangeCurrency.fulfilled, (state, action) => {
-      state.selectedCurrency = action.payload.asset_id_base;
-      state.currencyToExchange = action.payload.asset_id_quote;
-      state.rate = action.payload.rate;
-    });
   },
 });
 
 export default currencySlice.reducer;
 export const { exchangeRate } = currencySlice.actions;
+

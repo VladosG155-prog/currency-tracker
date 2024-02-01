@@ -19,6 +19,9 @@ const devConfig: ConfigurationWithDevServer = {
       directory: path.resolve(__dirname, 'public'),
     },
     hot: true,
+    client: {
+      overlay: true,
+    },
     port: 5003,
     historyApiFallback: true,
   },
@@ -26,3 +29,4 @@ const devConfig: ConfigurationWithDevServer = {
 };
 
 export default merge(commonConfig, devConfig);
+

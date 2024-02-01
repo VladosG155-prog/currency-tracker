@@ -1,13 +1,14 @@
 .root {
-  background: var(--background-color-gray);
+  background: var(--bg-color-gray);
   width: 600px;
-  height: 500px;
+  min-height: 300px;
   border-radius: 15px;
   position: relative;
-  border: 1px solid var(--background-color-secondary);
+  border: 1px solid var(--bg-color-secondary);
   padding: 15px;
   padding-top: 30px;
 
+  overflow: auto;
   & h2 {
     text-align: center;
     font-size: 28px;
@@ -24,7 +25,7 @@
   outline: none;
   right: 15px;
   top: 5px;
-  color: var(--background-color-secondary);
+  color: var(--bg-color-secondary);
   font-size: 56px;
   cursor: pointer;
 }
@@ -39,3 +40,4 @@
   @include flex($justify: center);
   backdrop-filter: blur(10px);
 }
+
