@@ -70,21 +70,21 @@ class TimeLinePage extends Component<{}, any> {
     this.setState({ showChartModal: false });
   };
 
-  onHideToast = () => {
-    this.setState({ showToast: false });
-  };
-
   onShowToast = () => {
     this.setState({ showToast: true });
   };
 
+  onHideToast = () => {
+    this.setState({ showToast: false });
+  };
+
   generateRandomData = () => {
-    this.onShowToast();
     chartService.handleGenerate();
+    this.onShowToast();
   };
 
   render() {
-    const { showToast, activeCurrency, showChartModal, selectedDay } =
+    const { activeCurrency, showChartModal, selectedDay, showToast } =
       this.state;
     const { currencies } = this.props;
     return (
@@ -111,8 +111,8 @@ class TimeLinePage extends Component<{}, any> {
         )}
         {showToast && (
           <Toast
+            title="The chart was successfuly updated"
             onClose={this.onHideToast}
-            title="The chart was successfully created"
           />
         )}
         <Button variant="success" onClick={this.generateRandomData}>

@@ -38,7 +38,7 @@ export const Select: FC<ISelectProps> = ({
   useOutsideClick(ref, toggleOptions);
 
   return (
-    <div ref={ref} className={styles.select}>
+    <div className={styles.select}>
       <input
         placeholder={placeholder}
         onClick={toggleOptions}
@@ -47,7 +47,7 @@ export const Select: FC<ISelectProps> = ({
         value={value}
       />
       {isShowOptions && (
-        <div className={styles.options}>
+        <div ref={ref} className={styles.options}>
           {options
             .filter((option) => option.value !== value)
             .map((option) => (

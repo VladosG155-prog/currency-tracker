@@ -10,11 +10,11 @@ interface IToastProps {
 
 const Toast: FC<IToastProps> = ({ title, onClose }) => {
   useEffect(() => {
-    const interval = setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       onClose();
-    }, 1000);
+    }, 2000);
 
-    return () => clearTimeout(interval);
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return createPortal(

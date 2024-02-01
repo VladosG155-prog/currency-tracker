@@ -15,11 +15,6 @@ class Observer {
   unSubscribe(callback: Listener) {
     this.observers = this.observers.filter((observer) => observer !== callback);
   }
-
-  performAction() {
-    console.log('Function executed');
-    this.notify();
-  }
 }
 
 export default Observer;
