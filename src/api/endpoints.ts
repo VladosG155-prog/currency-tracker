@@ -1,4 +1,4 @@
 export const endpoints = {
-  getCurrencyList: `${process.env.CURRENCY_API_URL}&currencies=EUR,USD,CAD,ARS,JPY,AUD,CNY,BTC,ARS&base_currency=BYN`,
+  getCurrencyList: `https://api.currencyapi.com/v3/latest?apikey=cur_live_zNBjAHduqewYwkGw63UeIZyjoc0vIgXz1YaNIUep`,
 };
 
