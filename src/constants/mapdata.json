@@ -1,0 +1,140 @@
+{
+  "BTC": [
+    {
+      "title": "Technobank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.41657801058179,
+      "longitude": 30.95901775278065,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipNUT89aNCekAXSn9HPBjPxiuOZeuJHfrbjXLsB5=w408-h306-k-no"
+    },
+    {
+      "title": "Technobank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.42595128522745,
+      "longitude": 30.998624866442544,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipM8nOmt1DSSnFNd7-HsCYJoaqYAO-K1QTxv5avl=w408-h306-k-no"
+    }
+  ],
+  "USD": [
+    {
+      "title": "BPS Sberbank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.43808336935794,
+      "longitude": 30.996044607322844,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipPQGCn7qe9JACDQtMAA2uQTpdHtZMh66q9qzRXL=w408-h306-k-no"
+    },
+    {
+      "title": "Technobank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.42595128522745,
+      "longitude": 30.998624866442544,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipM8nOmt1DSSnFNd7-HsCYJoaqYAO-K1QTxv5avl=w408-h306-k-no"
+    }
+  ],
+  "CAD": [
+    {
+      "title": "Belarusbank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.420596349591854,
+      "longitude": 30.960183242643026,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipM8-uDuz7okUNNA9H3hyWdcd7StZ-c87QK6vFEB=w408-h306-k-no"
+    },
+
+    {
+      "title": "VTB bank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.43261547988991,
+      "longitude": 31.009979880861646,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipNISWAOC-FAQ0Dqh4ChRstSaOvn1O8lmCcAkOjx=w408-h544-k-no"
+    }
+  ],
+  "CNY": [
+    {
+      "title": "Belarusbank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.41522915993517,
+      "longitude": 30.96079880444485,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipOdvXYb259fznALhlgAyZOk0OtC8qYBRVyKTglN=w408-h271-k-no"
+    },
+
+    {
+      "title": "BPS Sberbank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.42698150740411,
+      "longitude": 31.006358830851724,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipOmbzxq4T5UHZepELRmW0yn38j7ftmZfqeQaSaW=w408-h306-k-no"
+    }
+  ],
+  "JPY": [
+    {
+      "title": "Technobank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.42595128522745,
+      "longitude": 30.998624866442544,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipM8nOmt1DSSnFNd7-HsCYJoaqYAO-K1QTxv5avl=w408-h306-k-no"
+    },
+    {
+      "title": "VTB bank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.43261547988991,
+      "longitude": 31.009979880861646,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipNISWAOC-FAQ0Dqh4ChRstSaOvn1O8lmCcAkOjx=w408-h544-k-no"
+    }
+  ],
+  "EUR": [
+    {
+      "title": "VTB bank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.43261547988991,
+      "longitude": 31.009979880861646,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipNISWAOC-FAQ0Dqh4ChRstSaOvn1O8lmCcAkOjx=w408-h544-k-no"
+    },
+    {
+      "title": "BPS Sberbank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.43808336935794,
+      "longitude": 30.996044607322844,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipPQGCn7qe9JACDQtMAA2uQTpdHtZMh66q9qzRXL=w408-h306-k-no"
+    },
+    {
+      "title": "Technobank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.42595128522745,
+      "longitude": 30.998624866442544,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipM8nOmt1DSSnFNd7-HsCYJoaqYAO-K1QTxv5avl=w408-h306-k-no"
+    }
+  ],
+  "AUD": [
+    {
+      "title": "Technobank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.42595128522745,
+      "longitude": 30.998624866442544,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipM8nOmt1DSSnFNd7-HsCYJoaqYAO-K1QTxv5avl=w408-h306-k-no"
+    },
+    {
+      "title": "Belarusbank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.420596349591854,
+      "longitude": 30.960183242643026,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipM8-uDuz7okUNNA9H3hyWdcd7StZ-c87QK6vFEB=w408-h306-k-no"
+    }
+  ],
+  "ARS": [
+    {
+      "title": "VTB bank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.43261547988991,
+      "longitude": 31.009979880861646,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipNISWAOC-FAQ0Dqh4ChRstSaOvn1O8lmCcAkOjx=w408-h544-k-no"
+    },
+    {
+      "title": "Priorbank",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
+      "latitude": 52.4315627718756,
+      "longitude": 30.997601384965158,
+      "image": "https://lh5.googleusercontent.com/p/AF1QipM6Uufkiei93Xo0VSXB7G3wPzWWSfLmSsDxIyIi=w468-h240-k-no"
+    }
+  ]
+}
+

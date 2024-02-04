@@ -1,0 +1,2 @@
+module.exports = { ReactComponent: 'IconMock' };
+

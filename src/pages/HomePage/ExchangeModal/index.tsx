@@ -17,7 +17,7 @@ export const ExchangeModal: FC<ISelectedCurrency> = ({ selectedCurrency }) => {
   const dispatch = useAppDispatch();
 
   const [activeCurrency, setActiveCurrency] = useState('');
-  const [selectedCurrencyRate, setSelectedCurrencyRate] = useState('1');
+  const [selectedCurrencyRate, setSelectedCurrencyRate] = useState(1);
   const [activeCurrencyRate, setActiveCurrencyRate] = useState(1);
 
   const options = currencies
@@ -30,7 +30,7 @@ export const ExchangeModal: FC<ISelectedCurrency> = ({ selectedCurrency }) => {
   const handleChangeCurrency = (val: string) => {
     setActiveCurrency(val);
 
-    setActiveCurrencyRate(+selectedCurrencyRate * currenciesRate);
+    setActiveCurrencyRate(selectedCurrencyRate * currenciesRate);
   };
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export const ExchangeModal: FC<ISelectedCurrency> = ({ selectedCurrency }) => {
     setActiveCurrencyRate(+selectedCurrencyRate * currenciesRate);
   }, [currenciesRate, selectedCurrencyRate]);
 
-  const handleChangeSelectedCurrency = (val: string) => {
+  const handleChangeSelectedCurrency = (val: number) => {
     setSelectedCurrencyRate(val);
   };
 
@@ -54,8 +54,9 @@ export const ExchangeModal: FC<ISelectedCurrency> = ({ selectedCurrency }) => {
     <>
       <Field
         placeholder={selectedCurrency}
-        value={String(truncateToTwoSignificantDigits(+selectedCurrencyRate))}
-        onChange={(val) => handleChangeSelectedCurrency(val)}
+        value={truncateToTwoSignificantDigits(selectedCurrencyRate)}
+        onChange={(val) => handleChangeSelectedCurrency(+val)}
+        inputType="number"
       />
       <div className={styles.select}>
         <Select
@@ -64,8 +65,10 @@ export const ExchangeModal: FC<ISelectedCurrency> = ({ selectedCurrency }) => {
           options={options}
         />
       </div>
-      <p className={styles.convertedTo}>
-        {activeCurrency && truncateToTwoSignificantDigits(activeCurrencyRate)}
+      <p data-testid="convert-to" className={styles.convertedTo}>
+        {selectedCurrencyRate &&
+          activeCurrency &&
+          truncateToTwoSignificantDigits(activeCurrencyRate)}
       </p>
     </>
   );

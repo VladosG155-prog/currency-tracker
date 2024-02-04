@@ -10,6 +10,7 @@
     "isolatedModules": true,
     "resolveJsonModule": true,
     "strict": true,
+    "types": ["cypress"],
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -23,8 +24,8 @@
       "@pages/*": ["src/pages/*"]
     }
   },
-  "exclude": ["node_modules"],
-  "include": ["./src/**/*"],
+  "exclude": ["cypress.config.ts", "cypress", "node_modules"],
+  "include": ["./src/**/*", ".eslintrc", "__mocks__"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

@@ -6,15 +6,24 @@ interface IFieldProps {
   value: string | number;
   onChange: (value: string) => void;
   placeholder: string;
+  inputType?: 'number' | 'text';
 }
 
-const Field: FC<IFieldProps> = ({ value, onChange, placeholder }) => (
-  <div className={styles.field}>
+const Field: FC<IFieldProps> = ({
+  value,
+  onChange,
+  placeholder,
+  inputType = 'text',
+}) => (
+  <div data-testid="field" className={styles.field}>
     <p>{placeholder}</p>
     <input
-      type="text"
+      data-testid="input-field"
+      type={inputType}
       value={value}
+      min={1}
       onChange={(e) => onChange(e.target.value)}
+      placeholder={placeholder}
     />
   </div>
 );

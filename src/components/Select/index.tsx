@@ -40,6 +40,7 @@ export const Select: FC<ISelectProps> = ({
   return (
     <div className={styles.select}>
       <input
+        data-testid="select-input"
         placeholder={placeholder}
         onClick={toggleOptions}
         type="text"
@@ -47,11 +48,15 @@ export const Select: FC<ISelectProps> = ({
         value={value}
       />
       {isShowOptions && (
-        <div ref={ref} className={styles.options}>
+        <div data-testid="options" ref={ref} className={styles.options}>
           {options
             .filter((option) => option.value !== value)
             .map((option) => (
-              <p key={option.label} onClick={() => handleChange(option.value)}>
+              <p
+                data-testid="select-dropdown-item"
+                key={option.label}
+                onClick={() => handleChange(option.value)}
+              >
                 <Icon iconName={option.value} />
                 {option.label}
               </p>
