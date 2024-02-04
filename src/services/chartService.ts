@@ -1,5 +1,4 @@
 import { generateCandlestickData } from '@root/utils/generateDataForChart';
-import { observable } from '@root/utils/observer';
 
 interface IChartData {
   x: Date;

@@ -1,12 +1,14 @@
-import { FC, memo, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { observable } from '@root/utils/observer';
 
 import styles from './Toast.module.scss';
-import { observable } from '@root/utils/observer';
 
 export const Toast = memo(() => {
   const [toast, setToast] = useState<string>('');
-
+  const getToast = (data: string) => {
+    setToast(data);
+  };
   useEffect(() => {
     observable.subscribe(getToast);
     const timeoutId = setTimeout(() => {
@@ -18,10 +20,6 @@ export const Toast = memo(() => {
       clearTimeout(timeoutId);
     };
   }, [toast]);
-
-  const getToast = (data: string) => {
-    setToast(data);
-  };
 
   return toast.length > 0
     ? createPortal(

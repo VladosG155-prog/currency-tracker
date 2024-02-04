@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import mapData from '@constants/mapdata.json';
 import { Icon } from '@root/components/Icon';
 import { Search } from '@root/components/Search';
+import { getCurrencies } from '@root/store/slices/currencySlice';
 import { Themes } from '@root/types/enums';
+import { optionsMapper } from '@root/utils/optionsMapper';
 
 import styles from './BankCardPage.module.scss';
-import { optionsMapper } from '@root/utils/optionsMapper';
-import { getCurrencies } from '@root/store/slices/currencySlice';
 
 class BankCardPage extends Component {
   constructor() {
@@ -21,7 +21,8 @@ class BankCardPage extends Component {
   }
 
   componentDidMount(): void {
-    this.props.fetchCurrencies();
+    const { fetchCurrencies } = this.props;
+    fetchCurrencies();
   }
 
   changeSelectedCurrency = (val) => {

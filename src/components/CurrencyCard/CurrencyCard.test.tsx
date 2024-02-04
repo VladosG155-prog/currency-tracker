@@ -1,6 +1,7 @@
-import { render, fireEvent, screen, waitFor } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { truncateToTwoSignificantDigits } from '@utils/convertCurrencyValue';
+
+import '@testing-library/jest-dom';
 
 import { CurrencyCard } from '.';
 
@@ -14,13 +15,20 @@ describe('CurrencyCard component', () => {
 
   it('renders correctly', () => {
     waitFor(() => {
-      render(<CurrencyCard {...mockProps} />);
+      render(
+        <CurrencyCard
+          title={mockProps.title}
+          name={mockProps.name}
+          value={mockProps.value}
+          onClick={mockProps.onClick}
+        />,
+      );
     });
 
     const cardElement = screen.getByTestId('currency-card');
     const titleElement = screen.getByText('USD');
     const currencyValueElement = screen.getByText(
-      truncateToTwoSignificantDigits(1 / mockProps.value) + ' BYN',
+      `${truncateToTwoSignificantDigits(1 / mockProps.value)} BYN`,
     );
 
     expect(cardElement).toBeInTheDocument();
@@ -29,7 +37,14 @@ describe('CurrencyCard component', () => {
   });
 
   it('triggers onClick handler when clicked', () => {
-    render(<CurrencyCard {...mockProps} />);
+    render(
+      <CurrencyCard
+        title={mockProps.title}
+        name={mockProps.name}
+        value={mockProps.value}
+        onClick={mockProps.onClick}
+      />,
+    );
 
     const cardElement = screen.getByTestId('currency-card');
 

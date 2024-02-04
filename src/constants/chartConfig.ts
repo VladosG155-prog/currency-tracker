@@ -1,14 +1,12 @@
 // @ts-nocheck
+import { Themes } from '@root/types/enums';
 import { Chart as ChartJs, registerables } from 'chart.js';
-import {
-  CandlestickController,
+import {CandlestickController,
   CandlestickElement,
   OhlcController,
-  OhlcElement,
-} from 'chartjs-chart-financial';
+  OhlcElement,} from 'chartjs-chart-financial';
 
 import 'chartjs-adapter-moment';
-import { Themes } from '@root/types/enums';
 
 const customBorder = {
   id: 'customBorder',

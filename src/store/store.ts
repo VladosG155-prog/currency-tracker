@@ -15,6 +15,5 @@ export type AppDispatch = typeof store.dispatch;
 
 if (window.Cypress) {
   window.store = store;
-  console.log(1);
 }
 

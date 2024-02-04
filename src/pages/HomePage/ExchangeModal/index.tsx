@@ -4,10 +4,10 @@ import { Select } from '@components/Select';
 import { useAppDispatch, useAppSelector } from '@root/store/hooks';
 import { exchangeRate } from '@root/store/slices/currencySlice';
 import { truncateToTwoSignificantDigits } from '@root/utils/convertCurrencyValue';
+import { optionsMapper } from '@root/utils/optionsMapper';
+import { validationNumber } from '@root/utils/validation';
 
 import styles from './ExchangeModal.module.scss';
-import { validationNumber } from '@root/utils/validation';
-import { optionsMapper } from '@root/utils/optionsMapper';
 
 interface ISelectedCurrency {
   selectedCurrency: string;

@@ -5,17 +5,18 @@ import { connect } from 'react-redux';
 import { Select } from '@components/Select';
 import { Toast } from '@components/Toast';
 import { borderConfig, changeChart, options } from '@constants/chartConfig';
+import text from '@constants/text.json';
 import { Button } from '@root/components/Button';
 import { Modal } from '@root/components/Modal';
 import { chartService } from '@root/services/chartService';
 import { getCurrencies } from '@root/store/slices/currencySlice';
+import { generateCandlestickData } from '@root/utils/generateDataForChart';
+import { observable } from '@root/utils/observer';
 import { Chart as ChartJs } from 'chart.js';
-import text from '@constants/text.json';
+
 import { EditChartModal } from './EditChartModal';
 
 import styles from './TimeLine.module.scss';
-import { observable } from '@root/utils/observer';
-import { generateCandlestickData } from '@root/utils/generateDataForChart';
 
 class TimeLinePage extends Component<{}, any> {
   constructor(props: any) {
@@ -83,6 +84,8 @@ class TimeLinePage extends Component<{}, any> {
   generateRandomData = () => {
     chartService.handleGenerate();
     this.setState({ data: generateCandlestickData() });
+    console.log(this.state.data);
+
     observable.notify(text.shared.timeline.successChartBuilded);
   };
 

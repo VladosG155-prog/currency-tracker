@@ -1,5 +1,6 @@
-import { render, screen, waitFor } from '@testing-library/react';
 import { observable } from '@root/utils/observer';
+import { render, screen, waitFor } from '@testing-library/react';
+
 import { Toast } from '.';
 
 describe('Toast Component', () => {

@@ -16,5 +16,4 @@ container.render(
     <RouterProvider router={router} />
   </Provider>,
 );
-console.log(window);
 

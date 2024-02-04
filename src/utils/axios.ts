@@ -44,7 +44,6 @@ const axiosWithCache = async <T>(
 
     return response.data;
   } catch (error) {
-    console.error('Error fetching data:', error);
     return Promise.reject(error);
   }
 };

@@ -2,9 +2,9 @@ import { Component } from 'react';
 import { Button } from '@root/components/Button';
 import { Field } from '@root/components/Field';
 import { chartService } from '@root/services/chartService';
+import { observable } from '@root/utils/observer';
 
 import styles from './EditChartModal.module.scss';
-import { observable } from '@root/utils/observer';
 
 interface IEditChartModalProps {
   day: number;

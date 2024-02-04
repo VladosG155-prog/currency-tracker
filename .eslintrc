@@ -3,17 +3,30 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["airbnb", "airbnb-typescript", "prettier", "cypress"],
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "prettier",
+    "plugin:cypress/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": ["./tsconfig.json"]
   },
-  "plugins": ["@typescript-eslint", "react", "simple-import-sort"],
+  "plugins": ["@typescript-eslint", "react", "simple-import-sort", "cypress"],
 
   "rules": {
     "react/react-in-jsx-scope": "off",
     "no-param-reassign": 0,
     "react/require-default-props": "off",
+    "react/prop-types": 0,
+    "jsx-a11y/control-has-associated-label": "off",
+    "react/destructuring-assignment": [
+      1,
+      "always",
+      { "ignoreClassFields": true, "destructureInSignature": "ignore" }
+    ],
+
     "object-curly-newline": [
       "error",
       {

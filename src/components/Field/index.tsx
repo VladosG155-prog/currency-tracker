@@ -1,4 +1,4 @@
-import { ChangeEvent, FC } from 'react';
+import { FC } from 'react';
 
 import styles from './Field.module.scss';
 
@@ -16,19 +16,17 @@ export const Field: FC<IFieldProps> = ({
   placeholder,
   inputType = 'text',
   error,
-}) => {
-  return (
-    <div data-testid="field" className={styles.field}>
-      <p>{placeholder}</p>
-      <input
-        data-testid="input-field"
-        type={inputType}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-      />
-      {error && <span className={styles.error}>{error}</span>}
-    </div>
-  );
-};
+}) => (
+  <div data-testid="field" className={styles.field}>
+    <p>{placeholder}</p>
+    <input
+      data-testid="input-field"
+      type={inputType}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      placeholder={placeholder}
+    />
+    {error && <span className={styles.error}>{error}</span>}
+  </div>
+);
 

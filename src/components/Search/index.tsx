@@ -1,4 +1,4 @@
-import { Component, ReactNode, createRef } from 'react';
+import { Component, ReactNode } from 'react';
 
 import { Icon } from '../Icon';
 
@@ -11,10 +11,10 @@ interface ISearchProps {
 }
 
 export class Search extends Component<ISearchProps, any> {
-  constructor(props: ISearchProps) {
-    super(props);
+  constructor({ value, onChange, options }: ISearchProps) {
+    super({ value, onChange, options });
     this.state = {
-      search: this.props.value,
+      search: value,
       hideOptions: false,
     };
   }
@@ -30,7 +30,9 @@ export class Search extends Component<ISearchProps, any> {
   };
 
   onSubmit = () => {
-    this.props.onChange(this.state.search);
+    const { onChange } = this.props;
+    const { search } = this.state;
+    onChange(search);
     this.setState({ hideOptions: false });
   };
 
