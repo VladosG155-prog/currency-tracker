@@ -1,0 +1,39 @@
+body[data-theme='DARK'] {
+  --bg-color-primary: rgba(0, 0, 0, 1);
+  --bg-color-secondary: rgba(255, 255, 255, 1);
+  --bg-color-gray: rgba(32, 32, 37, 1);
+  --bg-color-input: rgba(27, 32, 40, 1);
+  --bg-color-green: rgba(0, 206, 44, 1);
+  --bg-color-gradient: linear-gradient(
+    241deg,
+    rgba(22, 39, 31, 0.79) 61%,
+    rgba(18, 18, 18, 1) 77%
+  );
+  --text-color-primary: rgba(255, 255, 255, 1);
+  --text-color-secondary: rgba(217, 217, 217, 1);
+  --text-color-gray: rgba(137, 137, 137, 1);
+  --text-color-gradient: -webkit-linear-gradient(
+    rgba(0, 206, 44, 1) 0%,
+    rgba(174, 223, 35, 1) 50%,
+    rgba(163, 220, 0, 1) 100%
+  );
+}
+body[data-theme='LIGHT'] {
+  --bg-color-primary: #fff;
+  --bg-color-gradient: linear-gradient(
+    241deg,
+    rgba(255, 255, 255, 0.79) 10%,
+    rgba(240, 240, 240, 1) 37%
+  );
+  --bg-color-gray: rgb(220, 220, 226);
+  --bg-color-input: rgba(240, 240, 240, 1);
+  --bg-color-secondary: #000;
+  --text-color-primary: #030304;
+  --text-color-secondary: rgba(119, 119, 119, 1);
+  --text-color-gradient: -webkit-linear-gradient(
+    rgba(255, 200, 255, 1) 0%,
+    rgba(255, 150, 0, 1) 50%,
+    rgba(255, 200, 255, 1) 100%
+  );
+}
+

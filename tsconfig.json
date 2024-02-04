@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "baseUrl": "./",
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "ES2015",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "types": ["cypress", "node"],
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@root/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
+      "@constants/*": ["src/constants/*"],
+      "@store/*": ["src/store/*"],
+      "@assets/*": ["src/assets/*"],
+      "@pages/*": ["src/pages/*"]
+    }
+  },
+  "exclude": ["cypress.config.ts", "cypress", "node_modules"],
+  "include": ["./src/**/*", ".eslintrc", "__mocks__", "cypress/**/*.ts"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
+

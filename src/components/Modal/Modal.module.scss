@@ -1,0 +1,54 @@
+.root {
+  background: var(--bg-color-gray);
+  width: 600px;
+  min-height: 500px;
+  border-radius: 15px;
+  position: relative;
+  border: 1px solid var(--bg-color-secondary);
+  padding: 15px;
+  padding-top: 30px;
+
+  overflow: hidden;
+  & h2 {
+    text-align: center;
+    font-size: var(--font-size-28);
+    color: var(--text-color-primary);
+  }
+  @media screen and (max-width: 768px) {
+    width: 80%;
+    height: calc(100vh - 80px);
+    min-height: auto;
+    position: unset;
+    overflow: scroll;
+  }
+}
+.content {
+  padding-top: 20px;
+}
+.close {
+  position: absolute;
+  background: none;
+  border: none;
+  outline: none;
+  right: 15px;
+  top: 5px;
+  color: var(--bg-color-secondary);
+  font-size: 56px;
+  cursor: pointer;
+  @media screen and (max-width: 768px) {
+    right: 25px;
+    top: 13px;
+  }
+}
+
+.overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  @include flex($justify: center);
+  backdrop-filter: blur(10px);
+}
+

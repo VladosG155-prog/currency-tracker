@@ -1,0 +1,59 @@
+@import '_normalize';
+@import '_theme';
+
+:root {
+  --font-size-12: 12px;
+  --font-size-18: 18px;
+  --font-size-24: 24px;
+  --font-size-26: 26px;
+  --font-size-28: 28px;
+  --font-size-32: 32px;
+  --font-size-38: 38px;
+}
+@media screen and (max-width: 768px) {
+  :root {
+    --font-size-12: 12px;
+    --font-size-18: 10px;
+    --font-size-24: 10px;
+    --font-size-26: 12px;
+    --font-size-28: 28px;
+    --font-size-32: 12px;
+    --font-size-38: 38px;
+  }
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-color-primary);
+  transition: background 0.1s ease;
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: unset;
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+  &.active {
+    @include gradientText;
+    &:hover::before {
+      display: none;
+    }
+  }
+  &:before {
+    content: '';
+    width: 0px;
+    position: absolute;
+    top: 100%;
+    height: 2px;
+    left: 0;
+    display: block;
+    background: var(--text-color-gradient);
+    transition: 0.1s all ease;
+  }
+  &:hover::before {
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,22 @@
+.field {
+  width: 100%;
+  margin-bottom: 20px;
+  & p {
+    color: var(--text-color-primary);
+    margin-bottom: 20px;
+  }
+  & input {
+    width: 100%;
+    height: 45px;
+    padding: 15px;
+    border: 1px solid var(--bg-color-secondary);
+    color: var(--text-color-primary);
+    background: transparent;
+  }
+}
+.error {
+  color: #ea3943;
+  margin-top: 10px;
+  font-size: var(--font-size-12);
+}
+

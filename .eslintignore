@@ -1,0 +1,12 @@
+/dist
+/node_modules
+package.json
+webpack.dev.ts
+webpack.common.ts
+webpack.prod.ts
+jest.config.*
+__tests__
+setupTests.ts
+cypress.config.ts
+.eslintrc
+cypress

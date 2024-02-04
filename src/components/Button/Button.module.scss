@@ -1,0 +1,21 @@
+.root {
+  padding: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 235px;
+  border-radius: 5px;
+
+  height: 40px;
+  color: #fff;
+  &[data-variant='success'] {
+    background: #16c782;
+  }
+  &[data-variant='decline'] {
+    background: #ea3943;
+  }
+  &[data-variant='default'] {
+    background: #1b2028;
+  }
+}
+

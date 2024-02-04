@@ -1,0 +1,28 @@
+{
+  "shared": {
+    "title": "Modsen Currency Tracker",
+    "header": {
+      "description": "Quotes for the dollar and other international currencies.",
+      "updatedAt": "Last updated at"
+    },
+    "footer": {
+      "description": "Since then, the company has grown organically to. Starsup is the world's largest trading platform, with $12 billion worth of currency trading and 500,000 tickets sold daily to tens of thousands of traders worldwide.",
+      "columns": [
+        { "title": "General", "list": ["Market", "Service"] },
+        { "title": "Product", "list": ["Sparks", "Snaps"] },
+        { "title": "Community", "list": ["Ideas", "Streams"] }
+      ]
+    },
+    "timeline": {
+      "successChartBuilded": "The chart was successfuly builded"
+    },
+    "modals": {
+      "convertCurrency": "Convert currency",
+      "editChart": "Edit currency by day"
+    },
+    "buttons": {
+      "random": "Random data"
+    }
+  }
+}
+
