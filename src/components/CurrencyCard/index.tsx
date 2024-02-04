@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useMediaQuery } from '@root/hooks/useMediaQuery';
 import { truncateToTwoSignificantDigits } from '@utils/convertCurrencyValue';
 
 import { Icon } from '../Icon';
@@ -19,10 +20,14 @@ export const CurrencyCard: FC<ICurrencyCardProps> = ({
   onClick,
 }) => {
   const currencyValue = `${truncateToTwoSignificantDigits(1 / value)} BYN`;
-
+  const isTablet = useMediaQuery('(max-width: 768px)');
   return (
     <div data-testid="currency-card" onClick={onClick} className={styles.root}>
-      <Icon iconName={name} width={80} height={80} />
+      <Icon
+        iconName={name}
+        width={isTablet ? 30 : 80}
+        height={isTablet ? 30 : 80}
+      />
       <div className={styles.text}>
         <h3>{title}</h3>
         <p>{currencyValue}</p>

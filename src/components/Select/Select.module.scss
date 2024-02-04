@@ -16,7 +16,7 @@
   position: absolute;
   border-radius: 5px;
   & p {
-    font-size: 18px;
+    font-size: var(--font-size-18);
     @include flex($justify: flex-start);
     gap: 10px;
     cursor: pointer;

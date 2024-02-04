@@ -11,10 +11,10 @@ interface ISearchProps {
 }
 
 export class Search extends Component<ISearchProps, any> {
-  constructor({ value, onChange, options }: ISearchProps) {
-    super({ value, onChange, options });
+  constructor(props: ISearchProps) {
+    super(props);
     this.state = {
-      search: value,
+      search: props.value,
       hideOptions: false,
     };
   }

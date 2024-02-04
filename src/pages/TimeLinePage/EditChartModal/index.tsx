@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import { Button } from '@root/components/Button';
 import { Field } from '@root/components/Field';
-import { chartService } from '@root/services/chartService';
 import { observable } from '@root/utils/observer';
 
 import styles from './EditChartModal.module.scss';
@@ -13,6 +12,8 @@ interface IEditChartModalProps {
   low: number;
   close: number;
   onClose: () => void;
+  onChange: (day: number, data: IChartData) => void;
+  onRemove: (day: number) => void;
 }
 
 export class EditChartModal extends Component<IEditChartModalProps, any> {
@@ -58,15 +59,20 @@ export class EditChartModal extends Component<IEditChartModalProps, any> {
 
   onSumbit = () => {
     const { open: o, low: l, high: h, close: c } = this.state;
-    const { day, onClose } = this.props;
-    chartService.changeDataPerDay(day, { o, h, l, c });
+    const { day, onClose, onChange } = this.props;
+    onChange(day, {
+      o,
+      h,
+      l,
+      c,
+    } as IChartData);
     onClose();
     observable.notify(`The ${day} day was successfuly edited`);
   };
 
   onRemove = () => {
-    const { day, onClose } = this.props;
-    chartService.removeDay(day);
+    const { day, onClose, onRemove } = this.props;
+    onRemove(day);
     onClose();
     observable.notify(`The ${day} day was successfuly removed`);
   };

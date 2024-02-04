@@ -3,6 +3,10 @@
   display: inline-block;
   width: 60px;
   height: 34px;
+  @media screen and (max-width: 768px) {
+    width: 30px;
+    height: 20px;
+  }
 }
 .switch input {
   opacity: 0;
@@ -31,12 +35,21 @@
   background-color: var(--bg-color-primary);
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  @media screen and (max-width: 768px) {
+    width: 13px;
+    height: 13px;
+    left: 1px;
+    bottom: 1.5px;
+  }
 }
 
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+  @media screen and (max-width: 768px) {
+    transform: translateX(10px);
+  }
 }
 
 .slider.round {

@@ -1,4 +1,6 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import {
+ fireEvent, render, screen, waitFor 
+} from '@testing-library/react';
 
 import { Search } from '.'; // Adjust the import path based on your project structure
 

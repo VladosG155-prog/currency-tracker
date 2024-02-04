@@ -1,3 +1,11 @@
+interface IChartData {
+  x: Date;
+  o: number;
+  l: number;
+  h: number;
+  c: number;
+}
+
 interface Currency {
   title: string;
   code: string;
@@ -15,9 +23,3 @@ interface ExchangeRateApiResponse {
   data: CurrencyData;
 }
 
-interface ExchangeCurrencyResponse {
-  time: string;
-  asset_id_base: string;
-  asset_id_quote: string;
-  rate: number;
-}

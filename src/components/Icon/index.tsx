@@ -1,4 +1,6 @@
-import { FC, lazy, memo, Suspense } from 'react';
+import {
+ FC, lazy, memo, Suspense 
+} from 'react';
 
 interface IIconProps {
   iconName: string;
