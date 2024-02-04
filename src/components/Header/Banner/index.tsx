@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Icon from '@components/Icon';
+import { Icon } from '@components/Icon';
 import { useAppSelector } from '@root/store/hooks';
 import { Themes } from '@root/types/enums';
 
@@ -10,7 +10,7 @@ interface IBannerProps {
   description: string;
 }
 
-const Banner: FC<IBannerProps> = ({ title, description }) => {
+export const Banner: FC<IBannerProps> = ({ title, description }) => {
   const theme = useAppSelector((state) => state.global.theme);
 
   const isDarkTheme = theme === Themes.Dark;
@@ -35,6 +35,4 @@ const Banner: FC<IBannerProps> = ({ title, description }) => {
     </div>
   );
 };
-
-export default Banner;
 

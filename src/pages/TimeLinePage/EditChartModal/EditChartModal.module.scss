@@ -1,0 +1,5 @@
+.btns {
+  gap: 10px;
+  @include flex($justify: flex-start);
+}
+

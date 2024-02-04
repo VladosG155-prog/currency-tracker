@@ -1,30 +1,38 @@
-import { FC, useEffect } from 'react';
+import { FC, memo, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import styles from './Toast.module.scss';
+import { observable } from '@root/utils/observer';
 
-interface IToastProps {
-  title: string;
-  onClose: () => void;
-}
+export const Toast = memo(() => {
+  const [toast, setToast] = useState<string>('');
 
-const Toast: FC<IToastProps> = ({ title, onClose }) => {
   useEffect(() => {
+    observable.subscribe(getToast);
     const timeoutId = setTimeout(() => {
-      onClose();
-    }, 2000);
+      setToast('');
+    }, 1500);
 
-    return () => clearTimeout(timeoutId);
-  }, []);
+    return () => {
+      observable.unsubscribe(getToast);
+      clearTimeout(timeoutId);
+    };
+  }, [toast]);
 
-  return createPortal(
-    <div className={styles.toast}>
-      {title}
-      <span className={styles.toastEnd} />
-    </div>,
-    document.body,
-  );
-};
+  const getToast = (data: string) => {
+    setToast(data);
+  };
 
-export default Toast;
+  return toast.length > 0
+    ? createPortal(
+        <div className={styles.toastContainer}>
+          <div className={styles.toast}>
+            <p>{toast}</p>
+            <span className={styles.toastEnd} />
+          </div>
+        </div>,
+        document.body,
+      )
+    : null;
+});
 

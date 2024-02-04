@@ -1,7 +1,7 @@
 import { act } from 'react-dom/test-utils';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import Modal from '.';
+import { Modal } from '.';
 
 describe('Modal Component', () => {
   it('renders Modal component with correct data', () => {

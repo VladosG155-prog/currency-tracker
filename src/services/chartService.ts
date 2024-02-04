@@ -1,5 +1,5 @@
 import { generateCandlestickData } from '@root/utils/generateDataForChart';
-import Observer from '@root/utils/observer';
+import { observable } from '@root/utils/observer';
 
 interface IChartData {
   x: Date;
@@ -10,18 +10,14 @@ interface IChartData {
 }
 
 class ChartService {
-  public observer: Observer;
-
   public data: IChartData[];
 
   constructor() {
-    this.observer = new Observer();
-    this.data = generateCandlestickData(30);
+    this.data = [];
   }
 
   handleGenerate() {
     this.data = generateCandlestickData(30);
-    this.observer.notify();
   }
 
   changeDataPerDay(day: number, data: Omit<IChartData, 'x'>) {

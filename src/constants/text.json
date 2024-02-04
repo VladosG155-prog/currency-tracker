@@ -13,8 +13,16 @@
         { "title": "Community", "list": ["Ideas", "Streams"] }
       ]
     },
+    "timeline": {
+      "successChartBuilded": "The chart was successfuly builded"
+    },
     "modals": {
-      "convertCurrency": "Convert currency"
+      "convertCurrency": "Convert currency",
+      "editChart": "Edit currency by day"
+    },
+    "buttons": {
+      "random": "Random data"
     }
   }
 }
+

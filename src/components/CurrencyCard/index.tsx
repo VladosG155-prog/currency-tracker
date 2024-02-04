@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { truncateToTwoSignificantDigits } from '@utils/convertCurrencyValue';
 
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 
 import styles from './CurrencyCard.module.scss';
 
@@ -30,6 +30,4 @@ export const CurrencyCard: FC<ICurrencyCardProps> = ({
     </div>
   );
 };
-
-export default CurrencyCard;
 

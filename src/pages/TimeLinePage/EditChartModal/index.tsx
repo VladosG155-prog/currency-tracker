@@ -1,9 +1,10 @@
 import { Component } from 'react';
 import { Button } from '@root/components/Button';
-import Field from '@root/components/Field';
+import { Field } from '@root/components/Field';
 import { chartService } from '@root/services/chartService';
 
 import styles from './EditChartModal.module.scss';
+import { observable } from '@root/utils/observer';
 
 interface IEditChartModalProps {
   day: number;
@@ -23,6 +24,10 @@ export class EditChartModal extends Component<IEditChartModalProps, any> {
       high: props.high,
       close: props.close,
     };
+  }
+
+  componentDidMount(): void {
+    observable.subscribe(() => this.onRemove);
   }
 
   stockFields = () => {
@@ -56,12 +61,14 @@ export class EditChartModal extends Component<IEditChartModalProps, any> {
     const { day, onClose } = this.props;
     chartService.changeDataPerDay(day, { o, h, l, c });
     onClose();
+    observable.notify(`The ${day} day was successfuly edited`);
   };
 
   onRemove = () => {
     const { day, onClose } = this.props;
     chartService.removeDay(day);
     onClose();
+    observable.notify(`The ${day} day was successfuly removed`);
   };
 
   render() {
@@ -81,12 +88,14 @@ export class EditChartModal extends Component<IEditChartModalProps, any> {
           ),
           this,
         )}
-        <Button variant="success" onClick={this.onSumbit}>
-          Submit
-        </Button>
-        <Button variant="decline" onClick={this.onRemove}>
-          Remove
-        </Button>
+        <div className={styles.btns}>
+          <Button variant="success" onClick={this.onSumbit}>
+            Submit
+          </Button>
+          <Button variant="decline" onClick={this.onRemove}>
+            Remove
+          </Button>
+        </div>
       </div>
     );
   }

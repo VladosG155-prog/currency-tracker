@@ -1,14 +1,15 @@
 .root {
   background: var(--bg-color-gray);
   width: 600px;
-  min-height: 300px;
+  min-height: 500px;
   border-radius: 15px;
   position: relative;
+
   border: 1px solid var(--bg-color-secondary);
   padding: 15px;
   padding-top: 30px;
 
-  overflow: auto;
+  overflow: hidden;
   & h2 {
     text-align: center;
     font-size: 28px;

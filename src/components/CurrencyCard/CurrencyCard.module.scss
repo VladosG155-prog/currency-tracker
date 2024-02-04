@@ -1,5 +1,5 @@
 .root {
-  background: #202025;
+  background: var(--bg-color-gray);
   padding: 30px;
   @include flex($justify: flex-start);
   width: 48%;
@@ -21,3 +21,4 @@
     font-weight: 300;
   }
 }
+

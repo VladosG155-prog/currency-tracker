@@ -4,12 +4,34 @@
   & input {
     height: 65px;
     width: 100%;
-    background: #1b2028;
+    background: var(--bg-color-input);
     border: none;
     font-size: 18px;
     color: var(--text-color-gray);
     border-radius: 8px;
     padding-left: 20px;
+  }
+}
+.searchOptions {
+  width: 100%;
+  position: absolute;
+  border-radius: 15px;
+
+  top: 100%;
+  z-index: 20;
+  & p {
+    font-size: 18px;
+    @include flex($justify: flex-start);
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px;
+    background: var(--bg-color-input);
+
+    color: var(--text-color-primary);
+    &:hover {
+      background: var(--text-color-secondary);
+      color: var(--text-color-primary);
+    }
   }
 }
 .searchBtn {

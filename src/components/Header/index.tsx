@@ -8,9 +8,9 @@ import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { changeTheme } from '@store/slices/globalSlice';
 import classNames from 'classnames';
 
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 
-import Banner from './Banner';
+import { Banner } from './Banner';
 
 import styles from './Header.module.scss';
 

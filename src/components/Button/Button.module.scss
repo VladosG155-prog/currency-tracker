@@ -3,8 +3,11 @@
   outline: none;
   border: none;
   cursor: pointer;
+  width: 235px;
   border-radius: 5px;
-  color: var(--text-color-primary);
+
+  height: 40px;
+  color: #fff;
   &[data-variant='success'] {
     background: #16c782;
   }

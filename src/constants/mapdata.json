@@ -1,6 +1,7 @@
 {
   "BTC": [
     {
+      "id": "1",
       "title": "Technobank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.41657801058179,
@@ -8,6 +9,7 @@
       "image": "https://lh5.googleusercontent.com/p/AF1QipNUT89aNCekAXSn9HPBjPxiuOZeuJHfrbjXLsB5=w408-h306-k-no"
     },
     {
+      "id": "2",
       "title": "Technobank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.42595128522745,
@@ -17,6 +19,7 @@
   ],
   "USD": [
     {
+      "id": "3",
       "title": "BPS Sberbank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.43808336935794,
@@ -24,6 +27,7 @@
       "image": "https://lh5.googleusercontent.com/p/AF1QipPQGCn7qe9JACDQtMAA2uQTpdHtZMh66q9qzRXL=w408-h306-k-no"
     },
     {
+      "id": "4",
       "title": "Technobank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.42595128522745,
@@ -33,6 +37,7 @@
   ],
   "CAD": [
     {
+      "id": "5",
       "title": "Belarusbank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.420596349591854,
@@ -41,6 +46,7 @@
     },
 
     {
+      "id": "6",
       "title": "VTB bank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.43261547988991,
@@ -50,6 +56,7 @@
   ],
   "CNY": [
     {
+      "id": "7",
       "title": "Belarusbank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.41522915993517,
@@ -58,6 +65,7 @@
     },
 
     {
+      "id": "8",
       "title": "BPS Sberbank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.42698150740411,
@@ -67,6 +75,7 @@
   ],
   "JPY": [
     {
+      "id": "9",
       "title": "Technobank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.42595128522745,
@@ -74,6 +83,7 @@
       "image": "https://lh5.googleusercontent.com/p/AF1QipM8nOmt1DSSnFNd7-HsCYJoaqYAO-K1QTxv5avl=w408-h306-k-no"
     },
     {
+      "id": "10",
       "title": "VTB bank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.43261547988991,
@@ -83,6 +93,7 @@
   ],
   "EUR": [
     {
+      "id": "11",
       "title": "VTB bank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.43261547988991,
@@ -90,6 +101,7 @@
       "image": "https://lh5.googleusercontent.com/p/AF1QipNISWAOC-FAQ0Dqh4ChRstSaOvn1O8lmCcAkOjx=w408-h544-k-no"
     },
     {
+      "id": "12",
       "title": "BPS Sberbank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.43808336935794,
@@ -97,6 +109,7 @@
       "image": "https://lh5.googleusercontent.com/p/AF1QipPQGCn7qe9JACDQtMAA2uQTpdHtZMh66q9qzRXL=w408-h306-k-no"
     },
     {
+      "id": "13",
       "title": "Technobank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.42595128522745,
@@ -106,6 +119,7 @@
   ],
   "AUD": [
     {
+      "id": "14",
       "title": "Technobank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.42595128522745,
@@ -113,6 +127,7 @@
       "image": "https://lh5.googleusercontent.com/p/AF1QipM8nOmt1DSSnFNd7-HsCYJoaqYAO-K1QTxv5avl=w408-h306-k-no"
     },
     {
+      "id": "15",
       "title": "Belarusbank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.420596349591854,
@@ -122,6 +137,7 @@
   ],
   "ARS": [
     {
+      "id": "16",
       "title": "VTB bank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.43261547988991,
@@ -129,6 +145,7 @@
       "image": "https://lh5.googleusercontent.com/p/AF1QipNISWAOC-FAQ0Dqh4ChRstSaOvn1O8lmCcAkOjx=w408-h544-k-no"
     },
     {
+      "id": "17",
       "title": "Priorbank",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec nisl eu augue malesuada vestibulum.",
       "latitude": 52.4315627718756,
