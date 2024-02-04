@@ -1,9 +1,11 @@
 import { FC, useEffect, useState } from 'react';
-import Field from '@components/Field';
+import { Field } from '@components/Field';
 import { Select } from '@components/Select';
 import { useAppDispatch, useAppSelector } from '@root/store/hooks';
 import { exchangeRate } from '@root/store/slices/currencySlice';
 import { truncateToTwoSignificantDigits } from '@root/utils/convertCurrencyValue';
+import { optionsMapper } from '@root/utils/optionsMapper';
+import { validationNumber } from '@root/utils/validation';
 
 import styles from './ExchangeModal.module.scss';
 
@@ -17,20 +19,15 @@ export const ExchangeModal: FC<ISelectedCurrency> = ({ selectedCurrency }) => {
   const dispatch = useAppDispatch();
 
   const [activeCurrency, setActiveCurrency] = useState('');
-  const [selectedCurrencyRate, setSelectedCurrencyRate] = useState(1);
+  const [selectedCurrencyRate, setSelectedCurrencyRate] = useState('1');
   const [activeCurrencyRate, setActiveCurrencyRate] = useState(1);
 
   const options = currencies
-    .map((currency) => {
-      const newObj = { label: currency.title, value: currency.code };
-      return newObj;
-    })
+    .map(optionsMapper)
     .filter((currency) => currency.value !== selectedCurrency);
 
   const handleChangeCurrency = (val: string) => {
     setActiveCurrency(val);
-
-    setActiveCurrencyRate(selectedCurrencyRate * currenciesRate);
   };
 
   useEffect(() => {
@@ -46,17 +43,25 @@ export const ExchangeModal: FC<ISelectedCurrency> = ({ selectedCurrency }) => {
     setActiveCurrencyRate(+selectedCurrencyRate * currenciesRate);
   }, [currenciesRate, selectedCurrencyRate]);
 
-  const handleChangeSelectedCurrency = (val: number) => {
+  const handleChangeSelectedCurrency = (val: string) => {
     setSelectedCurrencyRate(val);
   };
+
+  const error = validationNumber(+selectedCurrencyRate, 1, 10000);
+
+  const isShowConvertedCurrency =
+    activeCurrency &&
+    !error &&
+    `${truncateToTwoSignificantDigits(activeCurrencyRate)}  ${activeCurrency}`;
 
   return (
     <>
       <Field
         placeholder={selectedCurrency}
-        value={truncateToTwoSignificantDigits(selectedCurrencyRate)}
-        onChange={(val) => handleChangeSelectedCurrency(+val)}
+        value={selectedCurrencyRate}
+        onChange={(val) => handleChangeSelectedCurrency(val)}
         inputType="number"
+        error={error}
       />
       <div className={styles.select}>
         <Select
@@ -66,9 +71,7 @@ export const ExchangeModal: FC<ISelectedCurrency> = ({ selectedCurrency }) => {
         />
       </div>
       <p data-testid="convert-to" className={styles.convertedTo}>
-        {selectedCurrencyRate &&
-          activeCurrency &&
-          truncateToTwoSignificantDigits(activeCurrencyRate)}
+        {isShowConvertedCurrency}
       </p>
     </>
   );

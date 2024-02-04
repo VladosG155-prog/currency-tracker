@@ -6,13 +6,14 @@
 .toast {
   width: 400px;
   height: 50px;
+  position: relative;
   @include flex($justify: center);
   background: #fff;
   margin-bottom: 10px;
   border-radius: 8px;
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
+  & p {
+    color: #000;
+  }
 }
 .toastEnd {
   width: 100%;
@@ -22,7 +23,7 @@
   position: absolute;
   left: 0;
   bottom: 2px;
-  animation: shrinkAnimation 2s ease;
+  animation: shrinkAnimation 1500ms ease;
 }
 
 @keyframes shrinkAnimation {

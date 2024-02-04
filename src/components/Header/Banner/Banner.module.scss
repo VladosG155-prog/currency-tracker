@@ -1,5 +1,8 @@
 .root {
   height: 420px;
+  @media screen and (max-width: 768px) {
+    height: 200px;
+  }
 }
 .banner {
   @include flex($justify: space-around);
@@ -11,30 +14,45 @@
   right: 0;
   bottom: 0;
   font-weight: 600;
-
   width: 100%;
-
   z-index: -1;
+  @media screen and (max-width: 768px) {
+    height: 180px;
+  }
 }
 .textWrap {
   width: 80%;
   margin-right: 65px;
   max-width: 700px;
   @include flex($direction: column, $align: flex-end);
+  @media screen and (max-width: 768px) {
+    width: auto;
+    margin-right: 0px;
+    max-width: 100%;
+  }
   & h1 {
     font-size: 76px;
     text-align: end;
     @include gradientText;
     line-height: 1.5;
+    @media screen and (max-width: 768px) {
+      font-size: var(--font-size-38);
+      text-align: center;
+      line-height: 1;
+    }
   }
   & p {
-    font-size: 25px;
+    font-size: var(--font-size-26);
     margin-top: 10px;
     width: 400px;
     color: var(--text-color-secondary);
     font-weight: 300;
     line-height: 1.7;
     text-align: center;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      text-align: center;
+    }
   }
 }
 .bannerWrap {

@@ -1,11 +1,18 @@
 .root {
-  background: #202025;
+  background: var(--bg-color-gray);
   padding: 30px;
   @include flex($justify: flex-start);
   width: 48%;
   max-width: 520px;
   margin-bottom: 55px;
   border-radius: 8px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    height: 50px;
+  }
 }
 .text {
   margin-left: 30px;
@@ -14,10 +21,15 @@
     font-weight: 400;
     color: var(--text-color-secondary);
     margin-bottom: 20px;
+    @media screen and (max-width: 768px) {
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
   }
   & p {
     color: #a7b2c3;
-    font-size: 32px;
+    font-size: var(--font-size-32);
     font-weight: 300;
   }
 }
+

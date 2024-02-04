@@ -6,7 +6,7 @@
     height: 50px;
     padding: 15px;
     border-radius: 5px 5px 0px 0px;
-    background: #1b2028;
+    background: var(--bg-color-input);
     border: none;
     color: var(--text-color-primary);
   }
@@ -16,17 +16,17 @@
   position: absolute;
   border-radius: 5px;
   & p {
-    font-size: 18px;
+    font-size: var(--font-size-18);
     @include flex($justify: flex-start);
     gap: 10px;
     cursor: pointer;
     padding: 8px;
-    background: var(--bg-color-blue);
+    background: var(--bg-color-input);
 
     color: var(--text-color-primary);
     &:hover {
-      background: var(--text-color-gray);
-      color: var(--text-color-secondary);
+      background: var(--text-color-secondary);
+      color: var(--text-color-primary);
     }
   }
 }

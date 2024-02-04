@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import chartReducer from './slices/chartSlice';
 import currencyReducer from './slices/currencySlice';
 import globalReducer from './slices/globalSlice';
 
@@ -7,6 +8,7 @@ export const store = configureStore({
   reducer: {
     currency: currencyReducer,
     global: globalReducer,
+    chart: chartReducer,
   },
 });
 
@@ -15,6 +17,5 @@ export type AppDispatch = typeof store.dispatch;
 
 if (window.Cypress) {
   window.store = store;
-  console.log(1);
 }
 

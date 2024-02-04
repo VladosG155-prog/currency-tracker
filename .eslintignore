@@ -6,5 +6,7 @@ webpack.common.ts
 webpack.prod.ts
 jest.config.*
 __tests__
-setupTests.js
+setupTests.ts
 cypress.config.ts
+.eslintrc
+cypress

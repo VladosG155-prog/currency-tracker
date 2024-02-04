@@ -1,20 +1,24 @@
-type Listener = () => void;
+type IListener = (arg: string) => void;
 
-class Observer {
-  private observers: Listener[] = [];
+class Observable {
+  observers: IListener[];
 
-  subscribe(callback: Listener) {
-    this.observers.push(callback);
+  constructor() {
+    this.observers = [];
   }
 
-  notify() {
-    this.observers.forEach((observer) => observer());
+  subscribe(func: IListener) {
+    this.observers.push(func);
   }
 
-  unSubscribe(callback: Listener) {
-    this.observers = this.observers.filter((observer) => observer !== callback);
+  unsubscribe(func: IListener) {
+    this.observers = this.observers.filter((observer) => observer !== func);
+  }
+
+  notify(data: string) {
+    this.observers.forEach((observer) => observer(data));
   }
 }
 
-export default Observer;
+export const observable = new Observable();
 

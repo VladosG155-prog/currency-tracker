@@ -41,8 +41,8 @@ export function generateCandlestickData(days: number) {
   const startDate = new Date();
   const data = [];
 
-  for (let i = 0; i < days; i++) {
-    const date = new Date(startDate);
+  for (let i = 0; i < days; i += 1) {
+    const date = new Date(startDate as any);
 
     date.setDate(startDate.getDate() - i);
 

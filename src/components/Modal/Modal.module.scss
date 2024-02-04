@@ -1,18 +1,25 @@
 .root {
   background: var(--bg-color-gray);
   width: 600px;
-  min-height: 300px;
+  min-height: 500px;
   border-radius: 15px;
   position: relative;
   border: 1px solid var(--bg-color-secondary);
   padding: 15px;
   padding-top: 30px;
 
-  overflow: auto;
+  overflow: hidden;
   & h2 {
     text-align: center;
-    font-size: 28px;
+    font-size: var(--font-size-28);
     color: var(--text-color-primary);
+  }
+  @media screen and (max-width: 768px) {
+    width: 80%;
+    height: calc(100vh - 80px);
+    min-height: auto;
+    position: unset;
+    overflow: scroll;
   }
 }
 .content {
@@ -28,6 +35,10 @@
   color: var(--bg-color-secondary);
   font-size: 56px;
   cursor: pointer;
+  @media screen and (max-width: 768px) {
+    right: 25px;
+    top: 13px;
+  }
 }
 
 .overlay {

@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react';
 
-import Field from '.';
+import { Field } from '.';
 
 test('Field component renders correctly and handles onChange', () => {
   const mockOnChange = jest.fn();

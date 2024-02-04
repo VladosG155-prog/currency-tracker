@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import CurrencyCard from '@components/CurrencyCard';
-import Modal from '@components/Modal';
+import { CurrencyCard } from '@components/CurrencyCard';
+import { Modal } from '@components/Modal';
 import text from '@constants/text.json';
 import { useAppDispatch, useAppSelector } from '@root/store/hooks';
 import { getCurrencies } from '@root/store/slices/currencySlice';

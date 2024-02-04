@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import Icon from '@components/Icon';
+import { Icon } from '@components/Icon';
+import { useMediaQuery } from '@root/hooks/useMediaQuery';
 import { useAppSelector } from '@root/store/hooks';
 import { Themes } from '@root/types/enums';
 
@@ -10,8 +11,10 @@ interface IBannerProps {
   description: string;
 }
 
-const Banner: FC<IBannerProps> = ({ title, description }) => {
+export const Banner: FC<IBannerProps> = ({ title, description }) => {
   const theme = useAppSelector((state) => state.global.theme);
+
+  const isTablet = useMediaQuery('(max-width: 768px)');
 
   const isDarkTheme = theme === Themes.Dark;
 
@@ -23,18 +26,17 @@ const Banner: FC<IBannerProps> = ({ title, description }) => {
             <h1>{title}</h1>
             <p>{description}</p>
           </div>
-
-          <Icon
-            iconName={isDarkTheme ? 'Logo' : 'LightLogo'}
-            width={300}
-            height={300}
-            offset={1}
-          />
+          {!isTablet && (
+            <Icon
+              iconName={isDarkTheme ? 'Logo' : 'LightLogo'}
+              width={300}
+              height={300}
+              offset={1}
+            />
+          )}
         </div>
       </div>
     </div>
   );
 };
-
-export default Banner;
 

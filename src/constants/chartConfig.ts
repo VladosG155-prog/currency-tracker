@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { Themes } from '@root/types/enums';
 import { Chart as ChartJs, registerables } from 'chart.js';
 import {
   CandlestickController,
@@ -9,7 +10,6 @@ import {
 
 import 'chartjs-adapter-moment';
 
-ChartJs.defaults.borderColor = 'rgba(255,255,255,0.1)';
 const customBorder = {
   id: 'customBorder',
   afterDatasetsDraw(chart) {
@@ -21,7 +21,8 @@ const customBorder = {
     ctx.save();
     ctx.beginPath();
     ctx.lineWidth = 2;
-    ctx.strokeStyle = '#fff';
+
+    ctx.strokeStyle = chart.options.scales.y.ticks.color;
 
     ctx.moveTo(left, top + 3);
     ctx.lineTo(left + 5, top + 10);
@@ -39,6 +40,16 @@ const customBorder = {
   },
 };
 
+export const changeChart = (chart, theme) => {
+  if (theme === Themes.Dark) {
+    chart.options.scales.y.ticks.color = '#fff';
+    chart.options.scales.y.grid.color = 'rgba(255,255,255,0.1)';
+  } else {
+    chart.options.scales.y.grid.color = 'rgba(0,0,0,0.1)';
+    chart.options.scales.y.ticks.color = '#000';
+  }
+};
+
 ChartJs.register(
   ...registerables,
   CandlestickElement,
@@ -52,6 +63,7 @@ ChartJs.defaults.font = {
   family: 'Poppins, sans-serif',
   size: '12',
 };
+
 ChartJs.defaults.color = '#fff';
 ChartJs.defaults.elements.candlestick = {
   color: {
@@ -63,6 +75,7 @@ ChartJs.defaults.elements.candlestick = {
     down: '#EA3943',
   },
 };
+
 export const borderConfig = {
   up: '#16C782',
   down: '#EA3943',

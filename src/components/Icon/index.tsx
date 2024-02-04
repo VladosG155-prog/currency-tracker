@@ -1,4 +1,6 @@
-import { FC, lazy, memo, Suspense } from 'react';
+import {
+ FC, lazy, memo, Suspense 
+} from 'react';
 
 interface IIconProps {
   iconName: string;
@@ -7,27 +9,22 @@ interface IIconProps {
   offset?: number;
 }
 
-const Icon: FC<IIconProps> = ({
-  iconName,
-  width = 30,
-  height = 30,
-  offset = 0,
-}) => {
-  const LazyIcon = lazy(
-    () => import(/* webpackMode: 'eager' */ `@assets/${iconName}.svg`),
-  );
+export const Icon: FC<IIconProps> = memo(
+  ({ iconName, width = 30, height = 30, offset = 0 }) => {
+    const LazyIcon = lazy(
+      () => import(/* webpackMode: 'eager' */ `@assets/${iconName}.svg`),
+    );
 
-  return (
-    <Suspense>
-      <LazyIcon
-        data-testid="lazy-icon"
-        width={width}
-        height={height}
-        offset={offset}
-      />
-    </Suspense>
-  );
-};
-
-export default memo(Icon);
+    return (
+      <Suspense>
+        <LazyIcon
+          data-testid="lazy-icon"
+          width={width}
+          height={height}
+          offset={offset}
+        />
+      </Suspense>
+    );
+  },
+);
 

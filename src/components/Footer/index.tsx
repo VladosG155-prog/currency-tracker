@@ -2,7 +2,7 @@ import text from '@constants/text.json';
 import { Themes } from '@root/types/enums';
 import { useAppSelector } from '@store/hooks';
 
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 
 import styles from './Footer.module.scss';
 

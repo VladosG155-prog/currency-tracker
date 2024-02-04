@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 import { store } from '@store/store';
 
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { router } from './utils/routesConfig';
 
 const root = document.getElementById('root');
@@ -12,9 +13,10 @@ if (!root) throw new Error('root not found');
 const container = createRoot(root);
 
 container.render(
-  <Provider store={store}>
-    <RouterProvider router={router} />
-  </Provider>,
+  <ErrorBoundary>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </ErrorBoundary>,
 );
-console.log(window);
 

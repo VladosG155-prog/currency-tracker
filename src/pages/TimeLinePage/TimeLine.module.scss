@@ -3,4 +3,11 @@
   margin-top: 80px;
   margin-bottom: 50px;
 }
+.topBar {
+  @include flex;
+  margin-bottom: 20px;
+  .select {
+    width: 500px;
+  }
+}
 

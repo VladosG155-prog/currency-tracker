@@ -1,7 +1,7 @@
 import { FC, useRef, useState } from 'react';
 import { useOutsideClick } from '@root/hooks/useClickOutside';
 
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 
 import styles from './Select.module.scss';
 

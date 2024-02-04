@@ -1,6 +1,9 @@
 .root {
   padding-top: 30px;
   height: 500px;
+  @media screen and (max-width: 768px) {
+    height: 300px;
+  }
 }
 .topBar {
   @include flex;
@@ -9,9 +12,14 @@
 .nav {
   flex: 0 1 50%;
   @include flex;
+  @media screen and (max-width: 768px) {
+    flex: 0 1 70%;
+    max-width: 250px;
+  }
 }
 .link {
   color: var(--text-color-primary);
+  font-size: var(--font-size-18);
   &.active {
     @include gradientText;
   }
@@ -23,7 +31,7 @@
   justify-content: center;
   & p {
     color: var(--text-color-secondary);
-    font-size: 32px;
+    font-size: var(--font-size-32);
     font-weight: 300;
   }
 }
@@ -56,3 +64,4 @@
     box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
   }
 }
+

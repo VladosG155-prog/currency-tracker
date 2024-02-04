@@ -3,12 +3,18 @@ import { Component, createRef } from 'react';
 import { Chart } from 'react-chartjs-2';
 import { connect } from 'react-redux';
 import { Select } from '@components/Select';
-import Toast from '@components/Toast';
-import { borderConfig, options } from '@constants/chartConfig';
+import { Toast } from '@components/Toast';
+import { borderConfig, changeChart, options } from '@constants/chartConfig';
+import text from '@constants/text.json';
 import { Button } from '@root/components/Button';
-import Modal from '@root/components/Modal';
-import { chartService } from '@root/services/chartService';
+import { Modal } from '@root/components/Modal';
+import {
+  changeDataPerDay,
+  generateData,
+  removeDay,
+} from '@root/store/slices/chartSlice';
 import { getCurrencies } from '@root/store/slices/currencySlice';
+import { observable } from '@root/utils/observer';
 import { Chart as ChartJs } from 'chart.js';
 
 import { EditChartModal } from './EditChartModal';
@@ -20,7 +26,6 @@ class TimeLinePage extends Component<{}, any> {
     super(props);
     this.chartRef = createRef();
     this.state = {
-      showToast: false,
       activeCurrency: 'USD',
       showChartModal: false,
       selectedDay: {},
@@ -29,33 +34,43 @@ class TimeLinePage extends Component<{}, any> {
 
   componentDidMount(): void {
     const { fetchCurrencies } = this.props;
+
     fetchCurrencies();
-    chartService.observer.subscribe(() => this.onShowToast);
-    chartService.observer.subscribe(() => this.generateRandomData);
+    observable.subscribe(() => this.generateRandomData);
+  }
+
+  componentDidUpdate(): void {
+    const { theme } = this.props;
+
+    const chart = ChartJs.getChart(this.chartRef.current);
+
+    changeChart(chart, theme);
+
+    chart.update();
   }
 
   componentWillUnmount(): void {
-    chartService.observer.unSubscribe(() => this.generateRandomData);
+    observable.unsubscribe(() => this.generateRandomData);
   }
 
   handleClickChart = (event) => {
     const chart = ChartJs.getChart(this.chartRef.current);
 
-    const data = chart?.getElementsAtEventForMode(event, 'nearest', {
+    const chartData = chart?.getElementsAtEventForMode(event, 'nearest', {
       interserct: false,
     })[0];
+    if (!chartData) return;
 
-    const elementIndex = data.index;
+    const elementIndex = chartData.index;
 
-    if (!data) return;
     this.setState({
       showChartModal: true,
       selectedDay: {
-        day: data.index + 1,
-        open: chartService.data[elementIndex].o,
-        close: chartService.data[elementIndex].c,
-        high: chartService.data[elementIndex].h,
-        low: chartService.data[elementIndex].l,
+        day: chartData.index + 1,
+        open: this.props.data[elementIndex].o,
+        close: this.props.data[elementIndex].c,
+        high: this.props.data[elementIndex].h,
+        low: this.props.data[elementIndex].l,
       },
     });
   };
@@ -69,39 +84,46 @@ class TimeLinePage extends Component<{}, any> {
     this.setState({ showChartModal: false });
   };
 
-  onShowToast = () => {
-    this.setState({ showToast: true });
-  };
-
-  onHideToast = () => {
-    this.setState({ showToast: false });
-  };
-
   generateRandomData = () => {
-    chartService.handleGenerate();
-    this.onShowToast();
+    this.props.generateData();
+
+    observable.notify(text.shared.timeline.successChartBuilded);
   };
 
   render() {
-    const { activeCurrency, showChartModal, selectedDay, showToast } =
-      this.state;
-    const { currencies } = this.props;
-    console.log(chartService.data);
+    const { activeCurrency, showChartModal, selectedDay } = this.state;
+    const { currencies, data, deleteData, changeDayData } = this.props;
 
     return (
       <div data-testid="timeline-page" className={styles.chart}>
-        <Select
-          value={activeCurrency}
-          onChange={this.onChangeCurrency}
-          options={currencies.map((currency) => ({
-            label: currency.title,
-            value: currency.code,
-          }))}
-        />
+        <div className={styles.topBar}>
+          <div className={styles.select}>
+            <Select
+              value={activeCurrency}
+              onChange={this.onChangeCurrency}
+              options={currencies.map((currency) => ({
+                label: currency.title,
+                value: currency.code,
+              }))}
+            />
+          </div>
+          <Button
+            testId="random-button"
+            variant="success"
+            onClick={this.generateRandomData}
+          >
+            {text.shared.buttons.random}
+          </Button>
+        </div>
         {showChartModal && (
-          <Modal onClose={this.handleCloseModal} title="Edit currency by day">
+          <Modal
+            onClose={this.handleCloseModal}
+            title={text.shared.modals.editChart}
+          >
             <EditChartModal
               onClose={this.handleCloseModal}
+              onRemove={deleteData}
+              onChange={changeDayData}
               day={selectedDay.day}
               open={selectedDay.open}
               close={selectedDay.close}
@@ -110,19 +132,8 @@ class TimeLinePage extends Component<{}, any> {
             />
           </Modal>
         )}
-        {showToast && (
-          <Toast
-            title="The chart was successfuly updated"
-            onClose={this.onHideToast}
-          />
-        )}
-        <Button
-          testId="random-button"
-          variant="success"
-          onClick={this.generateRandomData}
-        >
-          Random data
-        </Button>
+        <Toast />
+
         <Chart
           type="candlestick"
           width={500}
@@ -133,7 +144,7 @@ class TimeLinePage extends Component<{}, any> {
             datasets: [
               {
                 type: 'candlestick',
-                data: chartService.data,
+                data,
                 borderColor: borderConfig,
               },
             ],
@@ -144,10 +155,17 @@ class TimeLinePage extends Component<{}, any> {
   }
 }
 
-const mapStateToProps = (state) => ({ currencies: state.currency.currencies });
+const mapStateToProps = (state) => ({
+  currencies: state.currency.currencies,
+  theme: state.global.theme,
+  data: state.chart.data,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCurrencies: () => dispatch(getCurrencies()),
+  generateData: () => dispatch(generateData()),
+  deleteData: (day) => dispatch(removeDay({ day })),
+  changeDayData: (day, data) => dispatch(changeDataPerDay({ day, data })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TimeLinePage);

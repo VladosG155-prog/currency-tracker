@@ -3,9 +3,11 @@ import { Component, ReactNode } from 'react';
 import { Map, Marker, Popup } from 'react-map-gl';
 import { connect } from 'react-redux';
 import mapData from '@constants/mapdata.json';
-import Icon from '@root/components/Icon';
+import { Icon } from '@root/components/Icon';
 import { Search } from '@root/components/Search';
+import { getCurrencies } from '@root/store/slices/currencySlice';
 import { Themes } from '@root/types/enums';
+import { optionsMapper } from '@root/utils/optionsMapper';
 
 import styles from './BankCardPage.module.scss';
 
@@ -18,13 +20,19 @@ class BankCardPage extends Component {
     };
   }
 
+  componentDidMount(): void {
+    const { fetchCurrencies } = this.props;
+    fetchCurrencies();
+  }
+
   changeSelectedCurrency = (val) => {
     this.setState({ selectedCurrency: val });
   };
 
   render(): ReactNode {
     const { popupInfo, selectedCurrency } = this.state;
-    const { theme } = this.props;
+    const { theme, currencies } = this.props;
+    const options = currencies.map(optionsMapper);
 
     return (
       <>
@@ -33,6 +41,7 @@ class BankCardPage extends Component {
           <Search
             value={selectedCurrency}
             onChange={this.changeSelectedCurrency}
+            options={options}
           />
         </div>
         <div className={styles.map}>
@@ -53,8 +62,8 @@ class BankCardPage extends Component {
               <>
                 {mapData[selectedCurrency].map((marker) => (
                   <Marker
-                    key={marker.id}
                     anchor="top"
+                    key={marker.id}
                     latitude={marker.latitude}
                     longitude={marker.longitude}
                     onClick={(e) => {
@@ -96,7 +105,14 @@ class BankCardPage extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ theme: state.global.theme });
+const mapStateToProps = (state) => ({
+  theme: state.global.theme,
+  currencies: state.currency.currencies,
+});
 
-export default connect(mapStateToProps)(BankCardPage);
+const mapDispatchToProps = (dispatch) => ({
+  fetchCurrencies: () => dispatch(getCurrencies()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BankCardPage);
 
