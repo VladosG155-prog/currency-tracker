@@ -23,7 +23,7 @@ const Modal: FC<IModalProps> = ({ onClose, title, children }) => {
   }, []);
 
   return createPortal(
-    <div className={styles.overlay}>
+    <div data-testid="modal" className={styles.overlay}>
       <div
         ref={ref}
         onClick={(e) => e.stopPropagation()}

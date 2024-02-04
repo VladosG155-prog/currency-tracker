@@ -14,7 +14,7 @@ export const Footer = () => {
     list.map((listItem) => <p key={listItem}>{listItem}</p>);
 
   return (
-    <div className={styles.root}>
+    <div data-testid="footer" className={styles.root}>
       <div className={styles.about}>
         <div className={styles.logo}>
           <Icon

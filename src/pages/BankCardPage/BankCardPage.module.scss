@@ -1,0 +1,22 @@
+.map {
+  margin-bottom: 100px;
+  height: 460px;
+  margin-top: 80px;
+}
+.top {
+  margin-top: 120px;
+  @include flex($justify: center, $direction: column);
+  & h2 {
+    color: var(--text-color-primary);
+    font-size: 38px;
+
+    margin-bottom: 25px;
+  }
+}
+.popup {
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+}
+

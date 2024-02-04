@@ -19,9 +19,15 @@ const Icon: FC<IIconProps> = ({
 
   return (
     <Suspense>
-      <LazyIcon width={width} height={height} offset={offset} />
+      <LazyIcon
+        data-testid="lazy-icon"
+        width={width}
+        height={height}
+        offset={offset}
+      />
     </Suspense>
   );
 };
 
 export default memo(Icon);
+

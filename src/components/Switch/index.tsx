@@ -9,10 +9,14 @@ interface IProps {
 }
 
 const Switch: FC<IProps> = ({ onChange, checked }) => (
-  <label className={styles.switch}>
+  <label data-testid="switch" className={styles.switch}>
     <input checked={checked} onChange={onChange} type="checkbox" />
-    <span className={classNames(styles.slider, styles.round)} />
+    <span
+      data-testid="switch-slider"
+      className={classNames(styles.slider, styles.round)}
+    />
   </label>
 );
 
 export default Switch;
+

@@ -21,7 +21,7 @@ export const CurrencyCard: FC<ICurrencyCardProps> = ({
   const currencyValue = `${truncateToTwoSignificantDigits(1 / value)} BYN`;
 
   return (
-    <div onClick={onClick} className={styles.root}>
+    <div data-testid="currency-card" onClick={onClick} className={styles.root}>
       <Icon iconName={name} width={80} height={80} />
       <div className={styles.text}>
         <h3>{title}</h3>

@@ -9,7 +9,6 @@ class Observer {
 
   notify() {
     this.observers.forEach((observer) => observer());
-    console.log('notified');
   }
 
   unSubscribe(callback: Listener) {

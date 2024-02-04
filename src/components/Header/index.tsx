@@ -42,7 +42,7 @@ const Header = () => {
   })}`;
 
   return (
-    <header className={styles.root}>
+    <header data-testid="header" className={styles.root}>
       <div className={styles.topBar}>
         <Icon
           iconName={isDarkTheme ? 'Logo' : 'LightLogo'}
@@ -51,7 +51,7 @@ const Header = () => {
           offset={1}
         />
 
-        <nav className={styles.nav}>
+        <nav data-testid="navigation" className={styles.nav}>
           {routes.nav.map((route) => (
             <NavLink
               className={({ isActive }) =>
@@ -59,6 +59,7 @@ const Header = () => {
                   [styles.active]: isActive,
                 })
               }
+              data-testid={`navigation-${route.testId}`}
               key={route.name}
               to={route.route}
             >

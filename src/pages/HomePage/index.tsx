@@ -14,10 +14,9 @@ const HomePage = () => {
   const dispatch = useAppDispatch();
   const currencies = useAppSelector((state) => state.currency.currencies);
   const showModal = useAppSelector((state) => state.global.showModal);
-
   const [selectedCurrency, setSelectedCurrency] = useState('');
 
-  const onClickCard = (currencyCode: string) => {
+  const onClickCard = (currencyCode: string) => () => {
     dispatch(toggleModal());
     setSelectedCurrency(currencyCode);
   };
@@ -31,7 +30,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className={styles.root}>
+    <div data-testid="home-page" className={styles.root}>
       {showModal && (
         <Modal
           title={text.shared.modals.convertCurrency}
@@ -43,7 +42,7 @@ const HomePage = () => {
 
       {currencies.map((currency) => (
         <CurrencyCard
-          onClick={() => onClickCard(currency.code)}
+          onClick={onClickCard(currency.code)}
           key={currency.code}
           name={currency.code}
           value={currency.value}

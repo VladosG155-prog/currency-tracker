@@ -29,9 +29,8 @@ class TimeLinePage extends Component<{}, any> {
 
   componentDidMount(): void {
     const { fetchCurrencies } = this.props;
-
     fetchCurrencies();
-
+    chartService.observer.subscribe(() => this.onShowToast);
     chartService.observer.subscribe(() => this.generateRandomData);
   }
 
@@ -87,8 +86,10 @@ class TimeLinePage extends Component<{}, any> {
     const { activeCurrency, showChartModal, selectedDay, showToast } =
       this.state;
     const { currencies } = this.props;
+    console.log(chartService.data);
+
     return (
-      <div className={styles.chart}>
+      <div data-testid="timeline-page" className={styles.chart}>
         <Select
           value={activeCurrency}
           onChange={this.onChangeCurrency}
@@ -115,7 +116,11 @@ class TimeLinePage extends Component<{}, any> {
             onClose={this.onHideToast}
           />
         )}
-        <Button variant="success" onClick={this.generateRandomData}>
+        <Button
+          testId="random-button"
+          variant="success"
+          onClick={this.generateRandomData}
+        >
           Random data
         </Button>
         <Chart

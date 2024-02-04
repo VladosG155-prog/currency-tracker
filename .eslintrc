@@ -3,10 +3,10 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["airbnb", "airbnb-typescript", "prettier"],
+  "extends": ["airbnb", "airbnb-typescript", "prettier", "cypress"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": ["./tsconfig.json"]
   },
   "plugins": ["@typescript-eslint", "react", "simple-import-sort"],
 
@@ -17,13 +17,13 @@
     "object-curly-newline": [
       "error",
       {
-        "ImportDeclaration": {
-          "minProperties": 5,
-          "consistent": false,
-          "multiline": true
-        }
+        "ObjectExpression": { "consistent": true, "multiline": true },
+        "ObjectPattern": { "consistent": true, "multiline": true },
+        "ImportDeclaration": "never",
+        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
       }
     ],
+
     "jsx-a11y/label-has-associated-control": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-static-element-interactions": "off",
@@ -41,17 +41,11 @@
       "error",
       {
         "groups": [
-          // Packages `react` related packages come first.
           ["^react", "^@?\\w"],
-          // Internal packages.
           ["^(@|components)(/.*|$)"],
-          // Side effect imports.
           ["^\\u0000"],
-          // Parent imports. Put `..` last.
           ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-          // Other relative imports. Put same-folder imports and `.` last.
           ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-          // Style imports.
           ["^.+\\.?(css)$"]
         ]
       }
