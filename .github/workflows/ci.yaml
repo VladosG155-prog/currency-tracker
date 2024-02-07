@@ -29,7 +29,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           build: yarn build
-          start: yarn start
+          start: yarn dev
           browser: chrome
 
   build:
