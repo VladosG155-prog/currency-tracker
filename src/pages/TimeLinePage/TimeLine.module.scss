@@ -3,6 +3,11 @@
   margin-top: 80px;
   margin-bottom: 50px;
 }
+.chartWrapper {
+  h1 {
+    color: var(--text-color-primary);
+  }
+}
 .topBar {
   @include flex;
   gap: 10px;

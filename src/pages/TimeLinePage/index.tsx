@@ -119,16 +119,7 @@ class TimeLinePage extends Component<ITimeLinePageProps, any> {
     } = this.props;
 
     const options = getOptions(theme);
-
-    const dataSets = {
-      datasets: [
-        {
-          data: data[activeCurrency],
-          color: colors.color,
-          borderColor: colors.borderColor,
-        },
-      ],
-    };
+    const chartData = Array.from(data[activeCurrency] ?? []);
 
     return (
       <div data-testid="timeline-page" className={styles.chart}>
@@ -170,14 +161,22 @@ class TimeLinePage extends Component<ITimeLinePageProps, any> {
         )}
         <Toast />
         <div data-testid="chart-wrapper" className={styles.chartWrapper}>
-          {data[activeCurrency] ? (
+          {data[activeCurrency] && data[activeCurrency].length ? (
             <Chart
               type="candlestick"
               width={500}
               ref={this.chartRef as any}
               options={options}
               onClick={this.handleClickChart}
-              data={dataSets as any}
+              data={{
+                datasets: [
+                  {
+                    data: chartData,
+                    color: colors.color,
+                    borderColor: colors.borderColor,
+                  },
+                ] as any,
+              }}
             />
           ) : (
             <h1>Empty chart</h1>
