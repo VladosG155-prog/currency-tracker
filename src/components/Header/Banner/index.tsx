@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Icon } from '@components/Icon';
 import { useMediaQuery } from '@root/hooks/useMediaQuery';
 import { useAppSelector } from '@root/store/hooks';
-import { Themes } from '@root/types/enums';
+import { Screens, Themes } from '@root/types/enums';
 
 import styles from './Banner.module.scss';
 
@@ -14,7 +14,7 @@ interface IBannerProps {
 export const Banner: FC<IBannerProps> = ({ title, description }) => {
   const theme = useAppSelector((state) => state.global.theme);
 
-  const isTablet = useMediaQuery('(max-width: 768px)');
+  const isTablet = useMediaQuery(Screens.Tablet);
 
   const isDarkTheme = theme === Themes.Dark;
 
@@ -39,4 +39,3 @@ export const Banner: FC<IBannerProps> = ({ title, description }) => {
     </div>
   );
 };
-

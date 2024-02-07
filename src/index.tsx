@@ -1,7 +1,8 @@
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
-import { store } from '@store/store';
+import { persistor, store } from '@store/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { router } from './utils/routesConfig';
@@ -15,7 +16,9 @@ const container = createRoot(root);
 container.render(
   <ErrorBoundary>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
     </Provider>
   </ErrorBoundary>,
 );

@@ -1,5 +1,5 @@
 interface IChartData {
-  x: Date;
+  x: number;
   o: number;
   l: number;
   h: number;

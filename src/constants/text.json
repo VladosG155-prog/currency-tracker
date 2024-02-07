@@ -22,7 +22,9 @@
     },
     "buttons": {
       "random": "Random data"
+    },
+    "bankCard": {
+      "search": "Search currency in the bank"
     }
   }
 }
-
