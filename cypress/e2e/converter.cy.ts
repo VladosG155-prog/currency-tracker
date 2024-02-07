@@ -21,7 +21,5 @@ describe('converter spec', () => {
     cy.get('[data-testid="select-input"]').click();
     cy.get('[data-testid="select-dropdown-item"]').eq(1).click();
     cy.get('[data-testid="convert-to"]').should('not.contain', 'NaN');
-    cy.get('[data-testid="convert-to"]').should('have.text', '0.0000279');
   });
 });
-

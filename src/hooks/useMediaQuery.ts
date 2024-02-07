@@ -1,7 +1,3 @@
-/* 
-TODO / Considerations:
-- Accepts an array of queries to . e.g. mediaQueryLists = queries.map(window.matchMedia)
-*/
 import { useEffect, useMemo, useState } from 'react';
 
 function useMatchedMedia(
@@ -40,4 +36,3 @@ export function useMediaQuery(
 
   return useMatchedMedia(modifiedQuery, onMatchFound, onMatchNotFound);
 }
-

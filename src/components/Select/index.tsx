@@ -1,5 +1,6 @@
 import { FC, useRef, useState } from 'react';
 import { useOutsideClick } from '@root/hooks/useClickOutside';
+import classNames from 'classnames';
 
 import { Icon } from '../Icon';
 
@@ -47,8 +48,13 @@ export const Select: FC<ISelectProps> = ({
         onChange={() => null}
         value={value}
       />
+      <div
+        className={classNames(styles.icon, { [styles.active]: isShowOptions })}
+      >
+        <Icon iconName="angle-down" />
+      </div>
       {isShowOptions && (
-        <div data-testid="options" ref={ref} className={styles.options}>
+        <div ref={ref} data-testid="options" className={styles.options}>
           {options
             .filter((option) => option.value !== value)
             .map((option) => (
@@ -66,4 +72,3 @@ export const Select: FC<ISelectProps> = ({
     </div>
   );
 };
-

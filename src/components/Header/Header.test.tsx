@@ -5,8 +5,6 @@ import { render, waitFor } from '@testing-library/react';
 
 import Header from '.';
 
-// Mocking the store
-
 describe('Header Component', () => {
   it('renders Header component with correct data', () => {
     const { getByTestId } = render(
@@ -23,4 +21,3 @@ describe('Header Component', () => {
     });
   });
 });
-

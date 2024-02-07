@@ -8,7 +8,7 @@ interface IState {
 }
 
 const initialState: IState = {
-  theme: (localStorage.getItem('theme') as Themes) || Themes.Dark,
+  theme: Themes.Dark,
   showLoader: false,
   showModal: false,
 };

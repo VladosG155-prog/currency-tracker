@@ -1,8 +1,6 @@
-import {
- fireEvent, render, screen, waitFor 
-} from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
-import { Search } from '.'; // Adjust the import path based on your project structure
+import { Search } from '.';
 
 describe('Search Component', () => {
   it('renders Search component with default value', () => {
@@ -56,4 +54,3 @@ describe('Search Component', () => {
     expect(onChangeMock).toHaveBeenCalledWith('USD');
   });
 });
-

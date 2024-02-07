@@ -25,7 +25,13 @@
     }
   },
   "exclude": ["cypress.config.ts", "cypress", "node_modules"],
-  "include": ["./src/**/*", ".eslintrc", "__mocks__", "cypress/**/*.ts"],
+  "include": [
+    "./src/**/*",
+    ".eslintrc",
+    "__mocks__",
+    "cypress/**/*.ts",
+    "./src/types/chartjs.d.ts"
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

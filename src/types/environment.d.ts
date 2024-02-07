@@ -1,7 +1,7 @@
 export {};
 declare global {
   interface Window {
-    store: any;
+    store: unknown;
   }
   namespace NodeJS {
     export interface ProcessEnv {
@@ -9,4 +9,3 @@ declare global {
     }
   }
 }
-

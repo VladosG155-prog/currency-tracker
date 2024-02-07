@@ -4,7 +4,7 @@ import Switch from '@components/Switch';
 import routes from '@constants/routes.json';
 import text from '@constants/text.json';
 import { useMediaQuery } from '@root/hooks/useMediaQuery';
-import { Themes } from '@root/types/enums';
+import { Screens, Themes } from '@root/types/enums';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { changeTheme } from '@store/slices/globalSlice';
 import classNames from 'classnames';
@@ -18,7 +18,7 @@ import styles from './Header.module.scss';
 const Header = () => {
   const theme = useAppSelector((state) => state.global.theme);
   const dispatch = useAppDispatch();
-  const isTablet = useMediaQuery('(max-width: 768px)');
+  const isTablet = useMediaQuery(Screens.Tablet);
   const lastTimeUpdate = useAppSelector(
     (state) => state.currency.lastTimeUpdate,
   );
@@ -32,7 +32,6 @@ const Header = () => {
   const toggleSwitch = () => {
     const newTheme = isDarkTheme ? Themes.Light : Themes.Dark;
     dispatch(changeTheme(newTheme));
-    localStorage.setItem('theme', newTheme);
   };
 
   const lastTimeUpdatedAt = `${text.shared.header.updatedAt} ${new Date(
@@ -82,4 +81,3 @@ const Header = () => {
   );
 };
 export default Header;
-

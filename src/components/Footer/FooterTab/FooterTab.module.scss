@@ -1,0 +1,30 @@
+.column {
+  & h2 {
+    margin-bottom: 40px;
+    font-size: var(--font-size-28);
+    color: var(--text-color-primary);
+    @media screen and (max-width: 768px) {
+      margin-bottom: 15px;
+      @include flex;
+    }
+  }
+  & p {
+    color: var(--text-color-gray);
+    font-weight: 400;
+    font-size: var(--font-size-24);
+    margin-bottom: 15px;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    text-align: start;
+    border-bottom: 1px solid #607d94;
+    margin-bottom: 15px;
+  }
+}
+
+.icon {
+  &.active {
+    transform: rotate(180deg);
+  }
+}
+

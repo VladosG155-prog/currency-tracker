@@ -15,6 +15,7 @@ const randomBar = (date: DateTime, lastClose: number) => {
     Math.min(open, close) * 0.9,
     Math.min(open, close),
   ).toFixed(2);
+
   return {
     x: date.valueOf(),
     o: open,
@@ -57,7 +58,7 @@ export function generateCandlestickData(days: number) {
       Math.min(open, close),
     ).toFixed(2);
     data.push({
-      x: date,
+      x: date.valueOf(),
       o: open,
       c: close,
       l: low,

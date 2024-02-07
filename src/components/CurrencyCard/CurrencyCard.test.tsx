@@ -1,6 +1,4 @@
-import {
- fireEvent, render, screen, waitFor 
-} from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { truncateToTwoSignificantDigits } from '@utils/convertCurrencyValue';
 
 import '@testing-library/jest-dom';
@@ -57,4 +55,3 @@ describe('CurrencyCard component', () => {
     });
   });
 });
-

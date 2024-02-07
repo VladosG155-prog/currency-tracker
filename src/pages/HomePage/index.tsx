@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { CurrencyCard } from '@components/CurrencyCard';
 import { Modal } from '@components/Modal';
 import text from '@constants/text.json';
+import { Loader } from '@root/components/Loader';
 import { useAppDispatch, useAppSelector } from '@root/store/hooks';
 import { getCurrencies } from '@root/store/slices/currencySlice';
 import { toggleModal } from '@root/store/slices/globalSlice';
@@ -12,7 +13,7 @@ import styles from './HomePage.module.scss';
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
-  const currencies = useAppSelector((state) => state.currency.currencies);
+  const { currencies, isLoading } = useAppSelector((state) => state.currency);
   const showModal = useAppSelector((state) => state.global.showModal);
   const [selectedCurrency, setSelectedCurrency] = useState('');
 
@@ -28,6 +29,8 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(getCurrencies());
   }, []);
+
+  if (isLoading) return <Loader />;
 
   return (
     <div data-testid="home-page" className={styles.root}>
