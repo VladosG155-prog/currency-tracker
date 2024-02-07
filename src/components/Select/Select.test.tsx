@@ -1,6 +1,4 @@
-import {
- fireEvent, render, screen, waitFor 
-} from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 import '@testing-library/jest-dom';
 
@@ -35,4 +33,3 @@ describe('Select Component', () => {
     expect(optionsElement).not.toBeInTheDocument();
   });
 });
-
