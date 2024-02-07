@@ -1,6 +1,4 @@
-import {
- FC, ReactNode, useEffect, useRef 
-} from 'react';
+import { FC, ReactNode, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useOutsideClick } from '@root/hooks/useClickOutside';
 
@@ -41,4 +39,3 @@ export const Modal: FC<IModalProps> = ({ onClose, title, children }) => {
     document.body,
   );
 };
-

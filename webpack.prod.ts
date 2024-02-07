@@ -10,7 +10,7 @@ const prodConfig: Configuration = {
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
 
   output: {
-    filename: '[name].[contenthash].bundle.js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
@@ -30,4 +30,3 @@ export default mergeWithRules({
     },
   },
 })(commonConfig, prodConfig);
-
