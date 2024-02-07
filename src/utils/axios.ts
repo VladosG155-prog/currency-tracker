@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_CURRENCY_API_URL,
+  baseURL: 'https://api.currencyapi.com/v3/latest',
   timeout: 3000,
-  headers: { apikey: process.env.REACT_APP_CURRENCY_API_KEY },
+  headers: { apikey: 'cur_live_oKc7otBDX8kyRM6T41p6Bjv8KJtWXa9km2Us0OSZ' },
 });
 
 export default instance;
