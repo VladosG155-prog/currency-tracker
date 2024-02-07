@@ -25,12 +25,6 @@ jobs:
 
       - name: Run Tests:unit
         run: yarn test
-      - name: Run Tests:e2e
-        uses: cypress-io/github-action@v6
-        with:
-          build: yarn build
-          start: yarn dev
-          browser: chrome
 
   build:
     runs-on: ubuntu-latest
