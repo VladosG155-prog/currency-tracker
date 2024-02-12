@@ -2,6 +2,7 @@ import path from 'path';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import merge from 'webpack-merge';
+import DotEnv from 'dotenv-webpack';
 import { Configuration } from 'webpack';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import commonConfig from './webpack.common';
@@ -25,8 +26,14 @@ const devConfig: ConfigurationWithDevServer = {
     port: 5003,
     historyApiFallback: true,
   },
-  plugins: [new ForkTsCheckerWebpackPlugin(), new ReactRefreshWebpackPlugin()],
+  plugins: [
+    new ForkTsCheckerWebpackPlugin(),
+    new ReactRefreshWebpackPlugin(),
+    new DotEnv({
+      path: '.env' || '',
+      safe: true,
+    }),
+  ],
 };
 
 export default merge(commonConfig, devConfig);
-
