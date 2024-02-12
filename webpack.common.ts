@@ -3,7 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 import { Configuration } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-
+import DotEnv from 'dotenv-webpack';
 const babelLoader = {
   test: /\.tsx?$/,
   exclude: /node_modules/,
@@ -80,7 +80,10 @@ const commonConfig: Configuration = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html'),
     }),
-
+    new DotEnv({
+      path: path.resolve(process.cwd(), '.env'),
+      systemvars: true,
+    }),
     new MiniCssExtractPlugin({}),
   ],
 };
