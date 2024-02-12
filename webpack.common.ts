@@ -1,6 +1,6 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import DotEnv from 'dotenv-webpack';
+
 import { Configuration } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
@@ -80,10 +80,7 @@ const commonConfig: Configuration = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html'),
     }),
-    new DotEnv({
-      path: '.env' || '',
-      safe: true,
-    }),
+
     new MiniCssExtractPlugin({}),
   ],
 };
