@@ -81,7 +81,7 @@ const commonConfig: Configuration = {
       template: path.resolve(__dirname, 'public', 'index.html'),
     }),
     new DotEnv({
-      path: './.env' || '',
+      path: '.env' || '',
       safe: true,
     }),
     new MiniCssExtractPlugin({}),
