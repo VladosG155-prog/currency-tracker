@@ -16,9 +16,9 @@
   }
   @media screen and (max-width: 768px) {
     width: 80%;
-    height: calc(100vh - 80px);
+    height: 450px;
     min-height: auto;
-    position: unset;
+
     overflow: scroll;
   }
 }
@@ -36,8 +36,8 @@
   font-size: 56px;
   cursor: pointer;
   @media screen and (max-width: 768px) {
-    right: 25px;
-    top: 13px;
+    right: 5px;
+    top: 0px;
   }
 }
 
@@ -49,6 +49,6 @@
   bottom: 0;
   width: 100%;
   @include flex($justify: center);
+  z-index: 100;
   backdrop-filter: blur(10px);
 }
-
