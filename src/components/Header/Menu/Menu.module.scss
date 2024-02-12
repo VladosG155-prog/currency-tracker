@@ -3,10 +3,11 @@
   @include flex;
 
   transition: 0.2s all ease-in;
-  background: var(--bg-color-primary);
+
   &.mobile {
     position: fixed;
     left: 0;
+    background: var(--bg-color-primary);
     top: 0;
     z-index: 20;
     @include flex($direction: column, $justify: center, $align: center);
