@@ -1,28 +1,6 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import { getCurrencies } from '@root/api/currencies';
 import { CurrencyTitles } from '@root/constants/currencyTitles';
-import axios from '@utils/axios';
-
-import type { RootState } from '../store';
-
-export const getCurrencies = createAsyncThunk(
-  'currenсies/fetchCurrencies',
-  async () => {
-    const response = await axios.get<ExchangeRateApiResponse>('', {
-      params: {
-        currencies: 'EUR,USD,CAD,ARS,JPY,AUD,CNY,BTC,ARS',
-        base_currency: 'BYN',
-      },
-    });
-
-    return response.data;
-  },
-  {
-    condition: (arg, { getState }) => {
-      const state = getState() as RootState;
-      return state.currency.currencies.length === 0;
-    },
-  },
-);
 
 interface InitialState {
   currencies: Currency[];
@@ -80,4 +58,3 @@ const currencySlice = createSlice({
 
 export default currencySlice.reducer;
 export const { exchangeRate } = currencySlice.actions;
-

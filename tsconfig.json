@@ -30,7 +30,7 @@
     ".eslintrc",
     "__mocks__",
     "cypress/**/*.ts",
-    "./src/types/chartjs.d.ts"
+    "src/@types/chartjs.d.ts"
   ],
   "ts-node": {
     "compilerOptions": {
@@ -38,4 +38,3 @@
     }
   }
 }
-

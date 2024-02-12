@@ -1,16 +1,12 @@
-import { Component, ReactNode } from 'react';
+import { ChangeEvent, Component, ReactNode } from 'react';
 
 import { Icon } from '../Icon';
 
+import { ISearchProps, ISearchState } from './Search.interface';
+
 import styles from './Search.module.scss';
 
-interface ISearchProps {
-  value: string;
-  onChange: (val: string) => void;
-  options: { label: string; value: string }[];
-}
-
-export class Search extends Component<ISearchProps, any> {
+export class Search extends Component<ISearchProps, ISearchState> {
   constructor(props: ISearchProps) {
     super(props);
     this.state = {
@@ -21,8 +17,8 @@ export class Search extends Component<ISearchProps, any> {
 
   componentDidMount(): void {}
 
-  onChangeValue = (val: string) => {
-    this.setState({ search: val });
+  onChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
+    this.setState({ search: e.target.value });
   };
 
   onClickOption = (code: string) => () => {
@@ -34,6 +30,10 @@ export class Search extends Component<ISearchProps, any> {
     const { search } = this.state;
     onChange(search);
     this.setState({ hideOptions: false });
+  };
+
+  showOptions = () => {
+    this.setState({ hideOptions: true });
   };
 
   render(): ReactNode {
@@ -50,8 +50,8 @@ export class Search extends Component<ISearchProps, any> {
       <div className={styles.root}>
         <input
           value={search}
-          onClick={() => this.setState({ hideOptions: true })}
-          onChange={(e) => this.onChangeValue(e.target.value)}
+          onClick={this.showOptions}
+          onChange={this.onChangeValue}
           placeholder="Сurrency search..."
         />
         <button
@@ -82,4 +82,3 @@ export class Search extends Component<ISearchProps, any> {
     );
   }
 }
-

@@ -1,36 +1,27 @@
 .root {
   padding-top: 30px;
   height: 500px;
+
   @media screen and (max-width: 768px) {
     height: 300px;
+    padding-top: 20px;
   }
 }
 .topBar {
   @include flex;
   margin-bottom: 30px;
-}
-.nav {
-  flex: 0 1 50%;
-  @include flex;
   @media screen and (max-width: 768px) {
-    flex: 0 1 70%;
-    max-width: 250px;
+    @include flex($align: flex-start);
   }
 }
-.link {
-  color: var(--text-color-primary);
-  font-size: var(--font-size-18);
-  &.active {
-    @include gradientText;
-  }
-}
+
 .lastUpdated {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   @media screen and (max-width: 768px) {
-    margin-top: 30px;
+    margin-top: 50px;
   }
   & p {
     color: var(--text-color-secondary);
@@ -67,4 +58,3 @@
     box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
   }
 }
-

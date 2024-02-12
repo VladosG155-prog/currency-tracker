@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { CurrencyCard } from '@components/CurrencyCard';
 import { Modal } from '@components/Modal';
 import text from '@constants/text.json';
+import { getCurrencies } from '@root/api/currencies';
 import { Loader } from '@root/components/Loader';
 import { useAppDispatch, useAppSelector } from '@root/store/hooks';
-import { getCurrencies } from '@root/store/slices/currencySlice';
 import { toggleModal } from '@root/store/slices/globalSlice';
 
 import { ExchangeModal } from './ExchangeModal';
@@ -57,4 +57,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-

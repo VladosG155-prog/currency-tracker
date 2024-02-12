@@ -1,32 +1,27 @@
-import { FC } from 'react';
+import { ChangeEvent, FC, memo, useCallback } from 'react';
+
+import { IFieldProps } from './Field.interface';
 
 import styles from './Field.module.scss';
 
-interface IFieldProps {
-  value: string;
-  onChange: (value: string) => void;
-  error?: string;
-  placeholder: string;
-  inputType?: 'number' | 'text';
-}
+export const Field: FC<IFieldProps> = memo(
+  ({ value, onChange, placeholder, inputType = 'text', error }) => {
+    const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+      onChange(e.target.value);
+    }, []);
 
-export const Field: FC<IFieldProps> = ({
-  value,
-  onChange,
-  placeholder,
-  inputType = 'text',
-  error,
-}) => (
-  <div data-testid="field" className={styles.field}>
-    <p>{placeholder}</p>
-    <input
-      data-testid="input-field"
-      type={inputType}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      placeholder={placeholder}
-    />
-    {error && <span className={styles.error}>{error}</span>}
-  </div>
+    return (
+      <div data-testid="field" className={styles.field}>
+        <p>{placeholder}</p>
+        <input
+          data-testid="input-field"
+          type={inputType}
+          value={value}
+          onChange={handleChange}
+          placeholder={placeholder}
+        />
+        {error && <span className={styles.error}>{error}</span>}
+      </div>
+    );
+  },
 );
-

@@ -4,19 +4,9 @@ import classNames from 'classnames';
 
 import { Icon } from '../Icon';
 
+import { ISelectProps } from './Select.interface';
+
 import styles from './Select.module.scss';
-
-interface IOption {
-  value: string;
-  label: string;
-}
-
-interface ISelectProps {
-  value?: string;
-  placeholder?: string;
-  onChange: (val: string) => void;
-  options: IOption[];
-}
 
 export const Select: FC<ISelectProps> = ({
   value = '',

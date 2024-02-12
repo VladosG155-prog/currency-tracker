@@ -10,6 +10,7 @@ export function useOutsideClick(
       elementRef.current &&
       !elementRef.current.contains(e.target as Element)
     ) {
+      e.stopPropagation();
       handler();
     }
   };
@@ -22,4 +23,3 @@ export function useOutsideClick(
       });
   }, []);
 }
-

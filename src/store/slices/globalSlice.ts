@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Themes } from '@root/types/enums';
+import { Themes } from '@root/constants/enums';
 
 interface IState {
   theme: Themes;
@@ -29,4 +29,3 @@ const globalSlice = createSlice({
 export default globalSlice.reducer;
 
 export const { changeTheme, toggleModal } = globalSlice.actions;
-

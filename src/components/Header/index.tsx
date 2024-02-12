@@ -1,23 +1,19 @@
 import { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import Switch from '@components/Switch';
-import routes from '@constants/routes.json';
 import text from '@constants/text.json';
+import { Screens, Themes } from '@root/constants/enums';
 import { useMediaQuery } from '@root/hooks/useMediaQuery';
-import { Screens, Themes } from '@root/types/enums';
-import { useAppDispatch, useAppSelector } from '@store/hooks';
-import { changeTheme } from '@store/slices/globalSlice';
-import classNames from 'classnames';
+import { useAppSelector } from '@store/hooks';
 
 import { Icon } from '../Icon';
 
 import { Banner } from './Banner';
+import { Menu } from './Menu';
 
 import styles from './Header.module.scss';
 
 const Header = () => {
   const theme = useAppSelector((state) => state.global.theme);
-  const dispatch = useAppDispatch();
+
   const isTablet = useMediaQuery(Screens.Tablet);
   const lastTimeUpdate = useAppSelector(
     (state) => state.currency.lastTimeUpdate,
@@ -28,11 +24,6 @@ const Header = () => {
   }, [theme]);
 
   const isDarkTheme = theme === Themes.Dark;
-
-  const toggleSwitch = () => {
-    const newTheme = isDarkTheme ? Themes.Light : Themes.Dark;
-    dispatch(changeTheme(newTheme));
-  };
 
   const lastTimeUpdatedAt = `${text.shared.header.updatedAt} ${new Date(
     lastTimeUpdate,
@@ -51,23 +42,7 @@ const Header = () => {
           offset={1}
         />
 
-        <nav data-testid="navigation" className={styles.nav}>
-          {routes.nav.map((route) => (
-            <NavLink
-              className={({ isActive }) =>
-                classNames(styles.link, {
-                  [styles.active]: isActive,
-                })
-              }
-              data-testid={`navigation-${route.testId}`}
-              key={route.name}
-              to={route.route}
-            >
-              {route.name}
-            </NavLink>
-          ))}
-        </nav>
-        <Switch checked={isDarkTheme} onChange={toggleSwitch} />
+        <Menu isDarkTheme={isDarkTheme} isTablet={isTablet} />
       </div>
       <Banner
         title={text.shared.title}

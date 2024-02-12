@@ -1,0 +1,13 @@
+.root {
+  @include flex($justify: center, $align: center, $direction: column);
+  color: var(--text-color-primary);
+  height: 100vh;
+  & h1 {
+    margin-bottom: 20px;
+    font-size: var(--font-size-28);
+  }
+  & a {
+    color: var(--text-color-primary);
+    margin-top: 20px;
+  }
+}

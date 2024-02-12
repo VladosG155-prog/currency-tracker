@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Select } from '@components/Select';
 import { Toast } from '@components/Toast';
 import text from '@constants/text.json';
+import { getCurrencies } from '@root/api/currencies';
 import { Button } from '@root/components/Button';
 import { Modal } from '@root/components/Modal';
 import { colors, getOptions } from '@root/pages/TimeLinePage/chartConfig';
@@ -13,41 +14,27 @@ import {
   generateData,
   removeDay,
 } from '@root/store/slices/chartSlice';
-import { getCurrencies } from '@root/store/slices/currencySlice';
 import { toggleModal } from '@root/store/slices/globalSlice';
 import { AppDispatch, RootState } from '@root/store/store';
-import { Themes } from '@root/types/enums';
 import { observable } from '@root/utils/observer';
 import { Chart as ChartJs } from 'chart.js';
 
 import { EditChartModal } from './EditChartModal';
+import {
+  ITimeLinePageProps,
+  ITimeLinePageState,
+} from './TimeLinePage.interface';
 
 import styles from './TimeLine.module.scss';
 
-interface ITimeLinePageProps {
-  theme: Themes;
-  data: {
-    [key: string]: IChartData[];
-  };
-  generateData: () => void;
-  deleteData: (day: number) => void;
-  changeDayData: (day: number, data: IChartData) => void;
-  currencies: Currency[];
-  fetchCurrencies: () => void;
-  setCurrency: (currency: string) => void;
-  activeCurrency: string;
-  showModal: boolean;
-  toggleModal: () => void;
-}
-
-class TimeLinePage extends Component<ITimeLinePageProps, any> {
-  chartRef = createRef<HTMLCanvasElement | CanvasRenderingContext2D | string>();
+class TimeLinePage extends Component<ITimeLinePageProps, ITimeLinePageState> {
+  chartRef = createRef<HTMLCanvasElement>();
 
   constructor(props: ITimeLinePageProps) {
     super(props);
 
     this.state = {
-      selectedDay: {},
+      selectedDay: null,
     };
   }
 
@@ -142,7 +129,7 @@ class TimeLinePage extends Component<ITimeLinePageProps, any> {
             {text.shared.buttons.random}
           </Button>
         </div>
-        {showModal && (
+        {showModal && selectedDay && (
           <Modal
             onClose={this.handleCloseModal}
             title={text.shared.modals.editChart}

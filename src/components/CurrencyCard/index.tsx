@@ -1,18 +1,13 @@
 import { FC, memo } from 'react';
+import { Screens } from '@root/constants/enums';
 import { useMediaQuery } from '@root/hooks/useMediaQuery';
-import { Screens } from '@root/types/enums';
 import { truncateToTwoSignificantDigits } from '@utils/convertCurrencyValue';
 
 import { Icon } from '../Icon';
 
-import styles from './CurrencyCard.module.scss';
+import { ICurrencyCardProps } from './CurrencyCard.interface';
 
-interface ICurrencyCardProps {
-  title: string;
-  name: string;
-  value: number;
-  onClick: () => void;
-}
+import styles from './CurrencyCard.module.scss';
 
 export const CurrencyCard: FC<ICurrencyCardProps> = memo(
   ({ name, value, title, onClick }) => {

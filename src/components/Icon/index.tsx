@@ -1,11 +1,6 @@
 import { FC, lazy, memo, Suspense } from 'react';
 
-interface IIconProps {
-  iconName: string;
-  width?: number;
-  height?: number;
-  offset?: number;
-}
+import { IIconProps } from './Icon.interface';
 
 export const Icon: FC<IIconProps> = memo(
   ({ iconName, width = 30, height = 30, offset = 0 }) => {
