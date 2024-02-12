@@ -9,13 +9,12 @@
   height: 40px;
   color: #fff;
   &[data-variant='success'] {
-    background: #16c782;
+    background: var(--bg-btn-success);
   }
   &[data-variant='decline'] {
-    background: #ea3943;
+    background: var(--bg-btn-decline);
   }
   &[data-variant='default'] {
-    background: #1b2028;
+    background: var(--bg-btn-default);
   }
 }
-

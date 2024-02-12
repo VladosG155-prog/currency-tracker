@@ -1,14 +1,10 @@
-import { FC, ReactNode, useEffect, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useOutsideClick } from '@root/hooks/useClickOutside';
 
-import styles from './Modal.module.scss';
+import { IModalProps } from './Modal.interface';
 
-interface IModalProps {
-  onClose: () => void;
-  title: string;
-  children: ReactNode;
-}
+import styles from './Modal.module.scss';
 
 export const Modal: FC<IModalProps> = ({ onClose, title, children }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -24,11 +20,7 @@ export const Modal: FC<IModalProps> = ({ onClose, title, children }) => {
 
   return createPortal(
     <div data-testid="modal" className={styles.overlay}>
-      <div
-        ref={ref}
-        onClick={(e) => e.stopPropagation()}
-        className={styles.root}
-      >
+      <div ref={ref} className={styles.root}>
         <h2>{title}</h2>
         <button type="button" className={styles.close} onClick={onClose}>
           &times;

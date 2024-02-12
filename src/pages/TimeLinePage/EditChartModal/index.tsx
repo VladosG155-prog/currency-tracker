@@ -2,21 +2,19 @@ import { Component } from 'react';
 import { Button } from '@root/components/Button';
 import { Field } from '@root/components/Field';
 import { observable } from '@root/utils/observer';
+import { validationNumber } from '@root/utils/validation';
+
+import {
+  IEditChartModalProps,
+  IEditChartModalState,
+} from './EditChartModal.interface';
 
 import styles from './EditChartModal.module.scss';
 
-interface IEditChartModalProps {
-  day: number;
-  open: number;
-  high: number;
-  low: number;
-  close: number;
-  onClose: () => void;
-  onChange: (day: number, data: IChartData) => void;
-  onRemove: (day: number) => void;
-}
-
-export class EditChartModal extends Component<IEditChartModalProps, any> {
+export class EditChartModal extends Component<
+  IEditChartModalProps,
+  IEditChartModalState
+> {
   constructor(props: IEditChartModalProps) {
     super(props);
     this.state = {
@@ -38,21 +36,25 @@ export class EditChartModal extends Component<IEditChartModalProps, any> {
         value: open,
         placeholder: 'open',
         onChange: (value: string) => this.setState({ open: +value }),
+        error: validationNumber(open, 1, 10000),
       },
       {
         value: close,
         placeholder: 'close',
         onChange: (value: string) => this.setState({ close: +value }),
+        error: validationNumber(close, 1, 10000),
       },
       {
         value: high,
         placeholder: 'high',
         onChange: (value: string) => this.setState({ high: +value }),
+        error: validationNumber(high, 1, 10000),
       },
       {
         value: low,
         placeholder: 'low',
         onChange: (value: string) => this.setState({ low: +value }),
+        error: validationNumber(low, 1, 10000),
       },
     ];
   };
@@ -87,9 +89,11 @@ export class EditChartModal extends Component<IEditChartModalProps, any> {
           (field) => (
             <Field
               key={field.placeholder}
-              value={field.value}
+              value={String(field.value)}
               placeholder={field.placeholder}
               onChange={field.onChange}
+              error={field.error}
+              inputType="number"
             />
           ),
           this,
@@ -106,4 +110,3 @@ export class EditChartModal extends Component<IEditChartModalProps, any> {
     );
   }
 }
-

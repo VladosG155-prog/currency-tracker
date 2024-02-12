@@ -1,15 +1,12 @@
 import { FC } from 'react';
 import { Icon } from '@components/Icon';
+import { Screens, Themes } from '@root/constants/enums';
 import { useMediaQuery } from '@root/hooks/useMediaQuery';
 import { useAppSelector } from '@root/store/hooks';
-import { Screens, Themes } from '@root/types/enums';
+
+import { IBannerProps } from './Banner.interface';
 
 import styles from './Banner.module.scss';
-
-interface IBannerProps {
-  title: string;
-  description: string;
-}
 
 export const Banner: FC<IBannerProps> = ({ title, description }) => {
   const theme = useAppSelector((state) => state.global.theme);

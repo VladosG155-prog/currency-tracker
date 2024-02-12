@@ -1,6 +1,6 @@
 import text from '@constants/text.json';
+import { Screens, Themes } from '@root/constants/enums';
 import { useMediaQuery } from '@root/hooks/useMediaQuery';
-import { Screens, Themes } from '@root/types/enums';
 import { useAppSelector } from '@store/hooks';
 
 import { Icon } from '../Icon';

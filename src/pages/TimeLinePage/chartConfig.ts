@@ -1,4 +1,4 @@
-import { Themes } from '@root/types/enums';
+import { Themes } from '@root/constants/enums';
 import { Chart as ChartJs, ChartOptions, registerables } from 'chart.js';
 import {
   CandlestickController,
@@ -71,6 +71,11 @@ export const getOptions = (theme: Themes): ChartOptions<'candlestick'> => {
     font: {
       family: 'Poppins, sans-serif',
       size: 12,
+    },
+    onHover: (event) => {
+      if (!event.native) return;
+      const element = event.native.target as HTMLElement;
+      element.style.cursor = 'pointer';
     },
     scales: {
       y: {

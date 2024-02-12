@@ -18,16 +18,22 @@ import globalReducer from './slices/globalSlice';
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['global'],
 };
 
-const persistedReducer = persistReducer(
-  persistConfig,
-  combineReducers({
-    currency: currencyReducer,
-    global: globalReducer,
-    chart: chartReducer,
-  }),
-);
+const globalPersistConfig = {
+  key: 'global',
+  storage,
+  blacklist: ['showModal'],
+};
+
+const rootReducer = combineReducers({
+  currency: currencyReducer,
+  global: persistReducer(globalPersistConfig, globalReducer),
+  chart: chartReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -47,4 +53,3 @@ if (window.Cypress) {
 }
 
 export const persistor = persistStore(store);
-

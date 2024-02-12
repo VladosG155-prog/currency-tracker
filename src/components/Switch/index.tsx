@@ -1,14 +1,11 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
+import { ISwitchProps } from './Switch.interface';
+
 import styles from './Switch.module.scss';
 
-interface IProps {
-  onChange: () => void;
-  checked: boolean;
-}
-
-const Switch: FC<IProps> = ({ onChange, checked }) => (
+const Switch: FC<ISwitchProps> = ({ onChange, checked }) => (
   <label data-testid="switch" className={styles.switch}>
     <input checked={checked} onChange={onChange} type="checkbox" />
     <span
@@ -19,4 +16,3 @@ const Switch: FC<IProps> = ({ onChange, checked }) => (
 );
 
 export default Switch;
-

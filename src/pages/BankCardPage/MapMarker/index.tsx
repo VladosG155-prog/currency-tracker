@@ -1,43 +1,35 @@
 import { PureComponent, ReactNode } from 'react';
 import { Marker } from 'react-map-gl';
+import { MarkerEvent, MarkerInstance } from 'react-map-gl/dist/esm/types';
 import { Icon } from '@root/components/Icon';
 
-export interface IPopupInfo {
-  title: string;
-  description: string;
-  image: string;
-  longitude: number;
-  latitude: number;
-}
-
-interface IMapMarker {
-  latitude: number;
-  longitude: number;
-  image: string;
-  description: string;
-  title: string;
-  onClick: (data: IPopupInfo) => void;
-}
+import { IMapMarker } from './MapMarker.interface';
 
 export class MapMarker extends PureComponent<IMapMarker> {
-  render(): ReactNode {
+  handleSetMarker = (e: MarkerEvent<MarkerInstance, MouseEvent>) => {
     const { latitude, longitude, image, title, description, onClick } =
       this.props;
+    if (e.originalEvent) {
+      e.originalEvent.stopPropagation();
+    }
+
+    onClick({
+      title,
+      description,
+      image,
+      latitude,
+      longitude,
+    });
+  };
+
+  render(): ReactNode {
+    const { latitude, longitude } = this.props;
     return (
       <Marker
         anchor="top"
         latitude={latitude}
         longitude={longitude}
-        onClick={(e) => {
-          e.originalEvent.stopPropagation();
-          onClick({
-            title,
-            description,
-            image,
-            latitude,
-            longitude,
-          });
-        }}
+        onClick={(e) => this.handleSetMarker(e)}
       >
         <Icon iconName="marker" />
       </Marker>

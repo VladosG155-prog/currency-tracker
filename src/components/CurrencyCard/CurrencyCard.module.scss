@@ -5,7 +5,11 @@
   width: 48%;
   max-width: 520px;
   margin-bottom: 55px;
+  cursor: pointer;
   border-radius: 8px;
+  &:hover {
+    opacity: 0.8;
+  }
   @media screen and (max-width: 768px) {
     width: 100%;
     max-width: 100%;
@@ -32,4 +36,3 @@
     font-weight: 300;
   }
 }
-

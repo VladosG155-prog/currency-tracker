@@ -1,8 +1,6 @@
-import { Component, ReactNode } from 'react';
+import { Component } from 'react';
 
-interface IErrorBoundaryProps {
-  children: ReactNode;
-}
+import { IErrorBoundaryProps } from './ErrorBoundary.interface';
 
 export class ErrorBoundary extends Component<
   IErrorBoundaryProps,

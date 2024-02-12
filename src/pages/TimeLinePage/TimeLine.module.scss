@@ -2,6 +2,9 @@
   width: 100%;
   margin-top: 80px;
   margin-bottom: 50px;
+  @media screen and (max-width: 768px) {
+    margin-top: 30px;
+  }
 }
 .chartWrapper {
   h1 {

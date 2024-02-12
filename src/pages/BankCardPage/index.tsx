@@ -3,26 +3,19 @@ import { Map, Popup } from 'react-map-gl';
 import { connect } from 'react-redux';
 import mapData from '@constants/mapdata.json';
 import text from '@constants/text.json';
+import { getCurrencies } from '@root/api/currencies';
 import { Search } from '@root/components/Search';
-import { getCurrencies } from '@root/store/slices/currencySlice';
+import { Themes } from '@root/constants/enums';
 import { AppDispatch, RootState } from '@root/store/store';
-import { Themes } from '@root/types/enums';
 import { optionsMapper } from '@root/utils/optionsMapper';
 
-import { IPopupInfo, MapMarker } from './MapMarker';
+import {
+  IBankCardPageProps,
+  IBankCardPageState,
+} from './BankCardPage.interface';
+import { MapMarker } from './MapMarker';
 
 import styles from './BankCardPage.module.scss';
-
-interface IBankCardPageProps {
-  fetchCurrencies: () => void;
-  currencies: Currency[];
-  theme: Themes;
-}
-
-interface IBankCardPageState {
-  selectedCurrency: string;
-  popupInfo: IPopupInfo | null;
-}
 
 class BankCardPage extends Component<IBankCardPageProps, IBankCardPageState> {
   constructor(props: IBankCardPageProps) {
@@ -61,7 +54,7 @@ class BankCardPage extends Component<IBankCardPageProps, IBankCardPageState> {
         </div>
         <div className={styles.map}>
           <Map
-            mapboxAccessToken="pk.eyJ1IjoidmxhZG9zZzE1NSIsImEiOiJjbHMzajM5bGUwc2FyMm5yd3Nmb25najhxIn0.i4DiJJ6_3snwgYzclLTqew"
+            mapboxAccessToken={process.env.MAP_TOKEN}
             initialViewState={{
               longitude: 30.995726271961736,
               latitude: 52.42159941323625,

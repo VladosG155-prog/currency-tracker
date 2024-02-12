@@ -7,11 +7,9 @@ import { truncateToTwoSignificantDigits } from '@root/utils/convertCurrencyValue
 import { optionsMapper } from '@root/utils/optionsMapper';
 import { validationNumber } from '@root/utils/validation';
 
-import styles from './ExchangeModal.module.scss';
+import { ISelectedCurrency } from '../HomePage.interface';
 
-interface ISelectedCurrency {
-  selectedCurrency: string;
-}
+import styles from './ExchangeModal.module.scss';
 
 export const ExchangeModal: FC<ISelectedCurrency> = ({ selectedCurrency }) => {
   const currencies = useAppSelector((state) => state.currency.currencies);
@@ -76,4 +74,3 @@ export const ExchangeModal: FC<ISelectedCurrency> = ({ selectedCurrency }) => {
     </>
   );
 };
-
