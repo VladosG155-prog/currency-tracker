@@ -108,6 +108,8 @@ class TimeLinePage extends Component<ITimeLinePageProps, ITimeLinePageState> {
     const options = getOptions(theme);
     const chartData = Array.from(data[activeCurrency] ?? []);
 
+    const { random, editChart } = text;
+
     return (
       <div data-testid="timeline-page" className={styles.chart}>
         <div className={styles.topBar}>
@@ -126,11 +128,11 @@ class TimeLinePage extends Component<ITimeLinePageProps, ITimeLinePageState> {
             variant="success"
             onClick={this.generateRandomData}
           >
-            {text.random}
+            {random}
           </Button>
         </div>
         {showModal && selectedDay && (
-          <Modal onClose={this.handleCloseModal} title={text.editChart}>
+          <Modal onClose={this.handleCloseModal} title={editChart}>
             <EditChartModal
               onClose={this.handleCloseModal}
               onRemove={deleteData}

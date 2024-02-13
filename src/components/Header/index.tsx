@@ -32,6 +32,8 @@ const Header = () => {
     minute: '2-digit',
   })}`;
 
+  const { title, description } = text;
+
   return (
     <header data-testid="header" className={styles.root}>
       <div className={styles.topBar}>
@@ -44,7 +46,7 @@ const Header = () => {
 
         <Menu isDarkTheme={isDarkTheme} isTablet={isTablet} />
       </div>
-      <Banner title={text.title} description={text.description} />
+      <Banner title={title} description={description} />
       <div className={styles.lastUpdated}>
         <div className={styles.pulseCircle} />
         <p>{lastTimeUpdatedAt}</p>
