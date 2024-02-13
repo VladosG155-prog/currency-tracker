@@ -42,10 +42,12 @@ class BankCardPage extends Component<IBankCardPageProps, IBankCardPageState> {
 
     const data = mapData[selectedCurrency as keyof typeof mapData];
 
+    const { search } = text;
+
     return (
       <>
         <div data-testid="bankcard-page" className={styles.top}>
-          <h2>{text.search}</h2>
+          <h2>{search}</h2>
           <Search
             value={selectedCurrency}
             onChange={this.changeSelectedCurrency}

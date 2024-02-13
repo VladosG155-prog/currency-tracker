@@ -15,6 +15,8 @@ export const Footer = () => {
 
   const isTablet = useMediaQuery(Screens.Tablet);
 
+  const { description, title: mainTitle } = text;
+
   return (
     <div data-testid="footer" className={styles.root}>
       <div className={styles.about}>
@@ -26,9 +28,9 @@ export const Footer = () => {
             offset={1}
           />
 
-          <h3>{text.title}</h3>
+          <h3>{mainTitle}</h3>
         </div>
-        {!isTablet && <p> {text.description}</p>}
+        {!isTablet && <p> {description}</p>}
       </div>
       {columns.map(({ title, list }) => (
         <FooterTab key={title} title={title} tabs={list} isTablet={isTablet} />

@@ -29,13 +29,13 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(getCurrencies());
   }, []);
-
+  const { modalTitle } = text;
   if (isLoading) return <Loader />;
 
   return (
     <div data-testid="home-page" className={styles.root}>
       {showModal && (
-        <Modal title={text.modalTitle} onClose={onCloseModal}>
+        <Modal title={modalTitle} onClose={onCloseModal}>
           <ExchangeModal selectedCurrency={selectedCurrency} />
         </Modal>
       )}
