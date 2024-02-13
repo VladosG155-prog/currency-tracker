@@ -47,14 +47,14 @@ export const Select: FC<ISelectProps> = ({
         <div ref={ref} data-testid="options" className={styles.options}>
           {options
             .filter((option) => option.value !== value)
-            .map((option) => (
+            .map(({ value: optionValue, label }) => (
               <p
                 data-testid="select-dropdown-item"
-                key={option.label}
-                onClick={() => handleChange(option.value)}
+                key={label}
+                onClick={() => handleChange(optionValue)}
               >
-                <Icon iconName={option.value} />
-                {option.label}
+                <Icon iconName={optionValue} />
+                {label}
               </p>
             ))}
         </div>

@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, memo, useCallback } from 'react';
+import { ChangeEvent, FC, memo } from 'react';
 
 import { IFieldProps } from './Field.interface';
 
@@ -6,9 +6,9 @@ import styles from './Field.module.scss';
 
 export const Field: FC<IFieldProps> = memo(
   ({ value, onChange, placeholder, inputType = 'text', error }) => {
-    const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       onChange(e.target.value);
-    }, []);
+    };
 
     return (
       <div data-testid="field" className={styles.field}>

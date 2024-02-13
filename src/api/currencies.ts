@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from '@root/api/axios';
 import { RootState } from '@root/store/store';
-import axios from '@utils/axios';
 
 export const getCurrencies = createAsyncThunk(
   'currenсies/fetchCurrencies',

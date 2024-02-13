@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
+import { routes } from '@root/constants/routes';
+
+import { text } from './FallBack.config';
 
 import styles from './FallBack.module.scss';
 
 const FallBack = () => (
   <div className={styles.root}>
-    <h1>404 - Not Found</h1>
-    <p>Sorry, the page you are looking for does not exist.</p>
-    <Link to="/">Go back</Link>
+    <h1>{text.title}</h1>
+    <p>{text.description}</p>
+    <Link to={routes.home}>{text.back}</Link>
   </div>
 );
 
