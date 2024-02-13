@@ -86,13 +86,13 @@ export class EditChartModal extends Component<
       <div className={styles.root}>
         <h2>Current day {day}</h2>
         {this.stockFields().map(
-          (field) => (
+          ({ placeholder, value, error, onChange }) => (
             <Field
-              key={field.placeholder}
-              value={String(field.value)}
-              placeholder={field.placeholder}
-              onChange={field.onChange}
-              error={field.error}
+              key={placeholder}
+              value={String(value)}
+              placeholder={placeholder}
+              onChange={onChange}
+              error={error}
               inputType="number"
             />
           ),

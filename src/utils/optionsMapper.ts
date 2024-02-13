@@ -1,5 +1,4 @@
-export const optionsMapper = (obj: any) => ({
-    label: obj.name || obj.title || '',
-    value: obj.code || '',
-  });
-
+export const optionsMapper = (obj: Currency) => ({
+  label: obj.title,
+  value: obj.code,
+});

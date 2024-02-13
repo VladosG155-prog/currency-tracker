@@ -1,10 +1,10 @@
-import text from '@constants/text.json';
 import { Screens, Themes } from '@root/constants/enums';
 import { useMediaQuery } from '@root/hooks/useMediaQuery';
 import { useAppSelector } from '@store/hooks';
 
 import { Icon } from '../Icon';
 
+import { columns, text } from './Footer.config';
 import { FooterTab } from './FooterTab';
 
 import styles from './Footer.module.scss';
@@ -26,17 +26,12 @@ export const Footer = () => {
             offset={1}
           />
 
-          <h3>{text.shared.title}</h3>
+          <h3>{text.title}</h3>
         </div>
-        {!isTablet && <p> {text.shared.footer.description}</p>}
+        {!isTablet && <p> {text.description}</p>}
       </div>
-      {text.shared.footer.columns.map((element) => (
-        <FooterTab
-          key={element.title}
-          title={element.title}
-          tabs={element.list}
-          isTablet={isTablet}
-        />
+      {columns.map(({ title, list }) => (
+        <FooterTab key={title} title={title} tabs={list} isTablet={isTablet} />
       ))}
     </div>
   );

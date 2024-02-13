@@ -65,12 +65,9 @@ export class Search extends Component<ISearchProps, ISearchState> {
         {hideOptions && (
           <div className={styles.searchOptions}>
             {newOptions.length > 0 ? (
-              newOptions.map((option) => (
-                <p
-                  onClick={this.onClickOption(option.value)}
-                  key={option.value}
-                >
-                  {option.label}
+              newOptions.map(({ value, label }) => (
+                <p onClick={this.onClickOption(value)} key={value}>
+                  {label}
                 </p>
               ))
             ) : (

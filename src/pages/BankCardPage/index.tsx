@@ -2,13 +2,13 @@ import { Component, Fragment, ReactNode } from 'react';
 import { Map, Popup } from 'react-map-gl';
 import { connect } from 'react-redux';
 import mapData from '@constants/mapdata.json';
-import text from '@constants/text.json';
 import { getCurrencies } from '@root/api/currencies';
 import { Search } from '@root/components/Search';
 import { Themes } from '@root/constants/enums';
 import { AppDispatch, RootState } from '@root/store/store';
 import { optionsMapper } from '@root/utils/optionsMapper';
 
+import { text } from './BankCardPage.config';
 import {
   IBankCardPageProps,
   IBankCardPageState,
@@ -45,7 +45,7 @@ class BankCardPage extends Component<IBankCardPageProps, IBankCardPageState> {
     return (
       <>
         <div data-testid="bankcard-page" className={styles.top}>
-          <h2>{text.shared.bankCard.search}</h2>
+          <h2>{text.search}</h2>
           <Search
             value={selectedCurrency}
             onChange={this.changeSelectedCurrency}

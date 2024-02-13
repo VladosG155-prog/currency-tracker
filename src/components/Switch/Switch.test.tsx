@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import Switch from '.';
+import { Switch } from '.';
 
 describe('Switch Component', () => {
   it('renders Switch component with correct data', () => {

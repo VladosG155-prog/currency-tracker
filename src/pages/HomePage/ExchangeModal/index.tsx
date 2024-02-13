@@ -22,7 +22,7 @@ export const ExchangeModal: FC<ISelectedCurrency> = ({ selectedCurrency }) => {
 
   const options = currencies
     .map(optionsMapper)
-    .filter((currency) => currency.value !== selectedCurrency);
+    .filter(({ value }) => value !== selectedCurrency);
 
   const handleChangeCurrency = (val: string) => {
     setActiveCurrency(val);

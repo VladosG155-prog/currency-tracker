@@ -3,7 +3,6 @@ import { Chart } from 'react-chartjs-2';
 import { connect } from 'react-redux';
 import { Select } from '@components/Select';
 import { Toast } from '@components/Toast';
-import text from '@constants/text.json';
 import { getCurrencies } from '@root/api/currencies';
 import { Button } from '@root/components/Button';
 import { Modal } from '@root/components/Modal';
@@ -20,6 +19,7 @@ import { observable } from '@root/utils/observer';
 import { Chart as ChartJs } from 'chart.js';
 
 import { EditChartModal } from './EditChartModal';
+import { text } from './TimeLine.config';
 import {
   ITimeLinePageProps,
   ITimeLinePageState,
@@ -90,7 +90,7 @@ class TimeLinePage extends Component<ITimeLinePageProps, ITimeLinePageState> {
   generateRandomData = () => {
     this.props.generateData();
 
-    observable.notify(text.shared.timeline.successChartBuilded);
+    observable.notify(text.successChartBuilded);
   };
 
   render() {
@@ -126,14 +126,11 @@ class TimeLinePage extends Component<ITimeLinePageProps, ITimeLinePageState> {
             variant="success"
             onClick={this.generateRandomData}
           >
-            {text.shared.buttons.random}
+            {text.random}
           </Button>
         </div>
         {showModal && selectedDay && (
-          <Modal
-            onClose={this.handleCloseModal}
-            title={text.shared.modals.editChart}
-          >
+          <Modal onClose={this.handleCloseModal} title={text.editChart}>
             <EditChartModal
               onClose={this.handleCloseModal}
               onRemove={deleteData}
